@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Resume extends StatelessWidget {
+class Summary extends StatelessWidget {
   final int monthlyVotesLeft;
   final int activeInitiatives;
 
   String monthlyVotesLeftMessage = '';
   String activeInitiativesMessage = '';
 
-  Resume(this.monthlyVotesLeft, this.activeInitiatives, {Key? key})
+  Summary(this.monthlyVotesLeft, this.activeInitiatives, {Key? key})
       : super(key: key) {
     monthlyVotesLeftMessage = 'You have $monthlyVotesLeft votes left.';
     activeInitiativesMessage =
@@ -18,8 +18,18 @@ class Resume extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(monthlyVotesLeftMessage),
-        Text(activeInitiativesMessage),
+        Text(
+          monthlyVotesLeftMessage,
+          style: const TextStyle(
+            color: Colors.pinkAccent,
+          ),
+        ),
+        Text(
+          activeInitiativesMessage,
+          style: const TextStyle(
+            color: Colors.pinkAccent,
+          ),
+        ),
       ],
     );
   }
