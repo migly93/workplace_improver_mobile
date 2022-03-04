@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:workplace_improver_mobile/models/InitiativeModel.dart';
 
 class Initiative extends StatelessWidget {
-  const Initiative({Key? key}) : super(key: key);
+  final InitiativeModel _initiativeData;
+  const Initiative(this._initiativeData, {Key? key}) : super(key: key);
 
-  @override
+
+   @override
   Widget build(BuildContext context) {
-    return const Card(
+    return Card(
       child: ListTile(
         title: Text(
-          "New Macbook",
+          this._initiativeData.title,
           style: TextStyle(
             color: Colors.pinkAccent,
             fontFamily: 'Roboto',
@@ -18,7 +21,7 @@ class Initiative extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         subtitle: Text(
-          "Long string with things fjbefgberglberberbervhbervhbervherbvherbvherbvelrhverhvrehvberhvbrehjfrehjfvrhvf",
+          this._initiativeData.subtitle,
           style: TextStyle(
             color: Colors.grey,
             fontFamily: 'Roboto',

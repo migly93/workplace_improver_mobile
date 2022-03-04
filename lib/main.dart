@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:workplace_improver_mobile/initiative.dart';
-import 'package:workplace_improver_mobile/quiz.dart';
-import 'package:workplace_improver_mobile/result.dart';
+import 'package:workplace_improver_mobile/services/initiativeService.dart';
 import 'package:workplace_improver_mobile/summary.dart';
+import 'models/InitiativeModel.dart';
+import 'service_locator.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  setupServiceLocator();
+  runApp(MyApp());
+}
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -16,69 +20,33 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var _questionIndex = 0;
-  var _totalScore = 0;
+  InitiativeService _initiativeService = getIt<InitiativeService>();
+  List<InitiativeModel> _initiatives = [];
+
+  Future<List<InitiativeModel>> loadData() async {
+    return _initiativeService.getAll();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final questions = [
-      {
-        'questionText': 'Favorite color?',
-        'answers': [
-          {'text': 'Black', 'score': 6},
-          {'text': 'Red', 'score': 5},
-          {'text': 'Blue', 'score': 4},
-          {'text': 'Green', 'score': 3},
-        ]
-      },
-      {
-        'questionText': 'Favorite animal?',
-        'answers': [
-          {'text': 'Rabbit', 'score': 6},
-          {'text': 'Snake', 'score': 5},
-          {'text': 'Dog', 'score': 4},
-          {'text': 'Cat', 'score': 3},
-        ]
-      },
-      {
-        'questionText': 'Favorite food?',
-        'answers': [
-          {'text': 'Pizza', 'score': 6},
-          {'text': 'Burger', 'score': 5},
-          {'text': 'Chinese', 'score': 4},
-          {'text': 'Pasta', 'score': 3},
-        ]
-      },
-    ];
-
-    void _answerQuestion(int score) {
-      setState(() {
-        _totalScore += score;
-        _questionIndex++;
-      });
-    }
-
-    void _resetQuiz() {
-      setState(() {
-        _totalScore = 0;
-        _questionIndex = 0;
-      });
-    }
-
+    loadData();
     return MaterialApp(
       home: Scaffold(
         body: Align(
           alignment: Alignment.center,
           child: SafeArea(
-            child: Column(
-              children: [
-                Summary(4, 2),
-                for (int i = 0; i < 5; i++) const Initiative()
-                /* _questionIndex < questions.length
-                    ? Quiz(questions, _questionIndex, _answerQuestion)
-                    : Result(_totalScore, _resetQuiz),*/
-              ],
-            ),
+            child: FutureBuilder<List<InitiativeModel>>(
+                future: loadData(),
+                builder: (BuildContext context,
+                    AsyncSnapshot<List<InitiativeModel>> snapshot) {
+                  return Column(
+                    children: [
+                      Summary(4, 2),
+                      for (int i = 0; i < snapshot.data!.length; i++)
+                        Initiative(snapshot.data![i]),
+                    ],
+                  );
+                }),
           ),
         ),
       ),
