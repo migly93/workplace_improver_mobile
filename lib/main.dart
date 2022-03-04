@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:workplace_improver_mobile/initiative.dart';
 import 'package:workplace_improver_mobile/quiz.dart';
 import 'package:workplace_improver_mobile/result.dart';
-import 'package:workplace_improver_mobile/resume.dart';
+import 'package:workplace_improver_mobile/summary.dart';
 
 void main() => runApp(const MyApp());
 
@@ -71,10 +72,11 @@ class _MyAppState extends State<MyApp> {
           child: SafeArea(
             child: Column(
               children: [
-                Resume(4, 2),
-                _questionIndex < questions.length
+                Summary(4, 2),
+                for (int i = 0; i < 5; i++) const Initiative()
+                /* _questionIndex < questions.length
                     ? Quiz(questions, _questionIndex, _answerQuestion)
-                    : Result(_totalScore, _resetQuiz),
+                    : Result(_totalScore, _resetQuiz),*/
               ],
             ),
           ),
