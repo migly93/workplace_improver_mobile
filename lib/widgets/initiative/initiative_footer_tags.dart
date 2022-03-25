@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:workplace_improver_mobile/widgets/initiative/footer_tag.dart';
+import 'package:workplace_improver_mobile/widgets/initiative/initiative_footer_tag.dart';
 
 // ignore: must_be_immutable
-class FooterTags extends StatelessWidget {
+class InitiativeFooterTags extends StatelessWidget {
   final List<String> _tags;
   List<String> _tagsToPrint = [];
 
-  FooterTags(
+  InitiativeFooterTags(
     this._tags, {
     Key? key,
   }) : super(key: key) {
@@ -17,7 +17,7 @@ class FooterTags extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Row(
-        children: _tagsToPrint.map((e) => FooterTag(e)).toList(),
+        children: _tagsToPrint.map((e) => InitiativeFooterTag(e)).toList(),
         mainAxisAlignment: MainAxisAlignment.start,
       ),
       width: 200,

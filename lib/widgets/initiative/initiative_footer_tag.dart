@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:workplace_improver_mobile/utils/constants.dart';
 
-class FooterTag extends StatelessWidget {
+class InitiativeFooterTag extends StatelessWidget {
   final String _tag;
 
-  const FooterTag(
+  const InitiativeFooterTag(
     this._tag, {
     Key? key,
   }) : super(key: key);

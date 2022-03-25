@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:workplace_improver_mobile/widgets/initiative/footer_icon.dart';
-import 'package:workplace_improver_mobile/widgets/initiative/footer_tags.dart';
+import 'package:workplace_improver_mobile/widgets/initiative/initiative_footer_icon.dart';
+import 'package:workplace_improver_mobile/widgets/initiative/initiative_footer_tags.dart';
 
 class InitiativeFooter extends StatelessWidget {
   final int _likes;
@@ -19,9 +19,9 @@ class InitiativeFooter extends StatelessWidget {
     return Container(
       child: Row(
         children: [
-          FooterTags(_tags),
-          FooterIcon(_likes, Icons.favorite_outline),
-          FooterIcon(_comments, Icons.reply_outlined),
+          InitiativeFooterTags(_tags),
+          InitiativeFooterIcon(_likes, Icons.favorite_outline),
+          InitiativeFooterIcon(_comments, Icons.reply_outlined),
         ],
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
       ),

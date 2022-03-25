@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:workplace_improver_mobile/utils/constants.dart';
 
-class FooterIcon extends StatelessWidget {
+class InitiativeFooterIcon extends StatelessWidget {
   final int _number;
   final IconData _icon;
 
-  const FooterIcon(
+  const InitiativeFooterIcon(
     this._number,
     this._icon, {
     Key? key,
