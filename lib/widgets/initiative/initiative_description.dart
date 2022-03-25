@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:workplace_improver_mobile/utils/constants.dart';
 
 class InitiativeDescription extends StatelessWidget {
   final String _description;
@@ -15,7 +16,7 @@ class InitiativeDescription extends StatelessWidget {
         _description,
         style: const TextStyle(
           color: Colors.grey,
-          fontFamily: 'Roboto',
+          fontFamily: mainFont,
           fontSize: 12,
           overflow: TextOverflow.fade,
         ),

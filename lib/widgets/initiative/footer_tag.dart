@@ -14,9 +14,9 @@ class FooterTag extends StatelessWidget {
     return Container(
       child: Text(
         _tag,
-        style: const TextStyle(
+        style: TextStyle(
           color: mainColor,
-          fontFamily: 'Roboto',
+          fontFamily: mainFont,
           fontSize: 16,
           fontWeight: FontWeight.bold,
           fontStyle: FontStyle.italic,

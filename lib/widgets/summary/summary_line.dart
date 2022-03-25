@@ -16,9 +16,9 @@ class SummaryLine extends StatelessWidget {
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(
-        style: const TextStyle(
+        style: TextStyle(
           color: mainColor,
-          fontFamily: 'Roboto',
+          fontFamily: mainFont,
           fontSize: 18,
           fontStyle: FontStyle.italic,
           overflow: TextOverflow.fade,

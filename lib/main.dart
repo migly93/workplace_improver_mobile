@@ -44,7 +44,7 @@ class _MyAppState extends State<MyApp> {
                   return Column(
                     children: [
                       const Summary(4, 2),
-                      const Divider(
+                      Divider(
                         color: mainGrey,
                         indent: 20,
                         endIndent: 20,

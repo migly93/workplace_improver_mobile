@@ -27,7 +27,7 @@ class InitiativeHeader extends StatelessWidget {
             radius: 16,
             child: Text(
               initials,
-              style: const TextStyle(
+              style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: secondaryColor,
               ),
@@ -37,16 +37,16 @@ class InitiativeHeader extends StatelessWidget {
         ),
         Text(
           _title,
-          style: const TextStyle(
+          style: TextStyle(
             color: mainColor,
-            fontFamily: 'Roboto',
+            fontFamily: mainFont,
             fontSize: 20,
             fontWeight: FontWeight.w800,
           ),
           textAlign: TextAlign.center,
         ),
         Container(
-          child: const Icon(
+          child: Icon(
             Icons.edit,
             color: mainColor,
             size: 26.0,

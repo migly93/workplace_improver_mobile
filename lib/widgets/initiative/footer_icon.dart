@@ -23,7 +23,7 @@ class FooterIcon extends StatelessWidget {
           ),
           Text(
             _number.toString(),
-            style: const TextStyle(
+            style: TextStyle(
               color: mainColor,
             ),
           ),

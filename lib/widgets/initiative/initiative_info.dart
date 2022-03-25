@@ -23,14 +23,14 @@ class InitiativeInfo extends StatelessWidget {
       children: [
         Row(
           children: [
-            const Icon(
+            Icon(
               Icons.flag_outlined,
               color: mainColor,
               size: 20.0,
             ),
             Text(
               _status,
-              style: const TextStyle(
+              style: TextStyle(
                 color: mainColor,
               ),
             ),
@@ -39,9 +39,9 @@ class InitiativeInfo extends StatelessWidget {
         ),
         Text(
           dateText,
-          style: const TextStyle(
+          style: TextStyle(
             color: mainColor,
-            fontFamily: 'Roboto',
+            fontFamily: mainFont,
           ),
           textAlign: TextAlign.center,
         ),
