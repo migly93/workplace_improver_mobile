@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
-const Color mainColor = Colors.pinkAccent;
-const Color secondaryColor = Colors.white;
-const Color mainGrey = Colors.grey;
+final Color mainColor = Colors.pinkAccent;
+final Color secondaryColor = Colors.white;
+final Color mainGrey = Colors.grey;
+const String mainFont = 'Roboto';
