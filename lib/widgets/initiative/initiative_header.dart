@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:workplace_improver_mobile/models/user.dart';
-import 'package:workplace_improver_mobile/utils/constants.dart';
 import 'package:workplace_improver_mobile/utils/utilities.dart';
-import 'package:workplace_improver_mobile/widgets/user_circle/user_circle.dart';
+import 'package:workplace_improver_mobile/widgets/initiative/initiative_header_edit.dart';
+import 'package:workplace_improver_mobile/widgets/initiative/initiative_header_owner.dart';
+import 'package:workplace_improver_mobile/widgets/initiative/initiative_header_title.dart';
 
 // ignore: must_be_immutable
 class InitiativeHeader extends StatelessWidget {
@@ -22,28 +23,9 @@ class InitiativeHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
-          child: UserCircle(_owner, 16),
-          margin: const EdgeInsets.all(10),
-        ),
-        Text(
-          _title,
-          style: TextStyle(
-            color: mainColor,
-            fontFamily: mainFont,
-            fontSize: 20,
-            fontWeight: FontWeight.w800,
-          ),
-          textAlign: TextAlign.center,
-        ),
-        Container(
-          child: Icon(
-            Icons.edit,
-            color: mainColor,
-            size: 26.0,
-          ),
-          margin: const EdgeInsets.all(10),
-        ),
+        InitiativeHeaderOwner(_owner),
+        InitiativeHeaderTitle(_title),
+        InitiativeHeaderEdit()
       ],
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
     );
