@@ -9,7 +9,7 @@ class Initiative {
   int _likes = 0;
   List<String> _comments = [];
   List<String> _tags = [];
-  User _owner = User('', '');
+  User _owner = User('', '', '');
 
 //default Constructor
   Initiative(

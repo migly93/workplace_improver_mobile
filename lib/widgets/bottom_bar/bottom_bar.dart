@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:workplace_improver_mobile/models/user.dart';
 import 'package:workplace_improver_mobile/widgets/bottom_bar/bottom_bar_icon.dart';
+import 'package:workplace_improver_mobile/widgets/user_circle/user_circle.dart';
 
 class BottomBar extends StatelessWidget {
-  const BottomBar({
+  final User _user;
+  const BottomBar(
+    this._user, {
     Key? key,
   }) : super(key: key);
 
@@ -10,10 +14,10 @@ class BottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Row(
-        children: const [
-          BottomBarIcon(Icons.home_outlined),
-          BottomBarIcon(Icons.add_outlined),
-          BottomBarIcon(Icons.person_outline_rounded),
+        children: [
+          const BottomBarIcon(Icons.home_outlined),
+          const BottomBarIcon(Icons.add_outlined),
+          UserCircle(_user, 20),
         ],
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
       ),

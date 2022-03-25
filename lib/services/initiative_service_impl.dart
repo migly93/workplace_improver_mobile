@@ -25,7 +25,8 @@ class InitiativeServiceImpl extends InitiativeService {
         4,
         ["comment 1", "Comment 2", "Comment 3"],
         ["#tag1", "#tag2", "#tag3", "#tag4", "#tag5", "#tag6"],
-        User('Giuseppe', 'Migliaccio'),
+        User('Giuseppe', 'Migliaccio',
+            'https://cdn.dribbble.com/users/81809/screenshots/3347540/gokussj.jpg'),
       ),
       Initiative(
         "Title 2",
@@ -35,7 +36,7 @@ class InitiativeServiceImpl extends InitiativeService {
         45,
         ["comment 1", "Comment 2", "Comment 3"],
         ["#tag1", "#tag2", "#tag3", "#tag4", "#tag5", "#tag6"],
-        User('Cristina', 'Moran'),
+        User('Cristina', 'Moran', ''),
       ),
       Initiative(
         "Title 3",
@@ -45,7 +46,7 @@ class InitiativeServiceImpl extends InitiativeService {
         8,
         ["comment 1", "Comment 2", "Comment 3"],
         ["#tag1", "#tag2"],
-        User('Noelia', 'Carrasco'),
+        User('Noelia', 'Carrasco', ''),
       ),
       Initiative(
         "Title 4",
@@ -55,7 +56,7 @@ class InitiativeServiceImpl extends InitiativeService {
         2,
         ["comment 1", "Comment 2", "Comment 3"],
         ["#tag1", "#tag2", "#tag3", "#tag4", "#tag5", "#tag6"],
-        User('Noelia', 'Carrasco'),
+        User('Noelia', 'Carrasco', ''),
       )
     ];
     return initiatives;

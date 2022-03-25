@@ -5,6 +5,7 @@ import 'package:workplace_improver_mobile/widgets/bottom_bar/bottom_bar.dart';
 import 'package:workplace_improver_mobile/widgets/summary/summary.dart';
 import 'package:workplace_improver_mobile/widgets/initiatives/initiatives.dart';
 import 'models/initiative.dart' as model;
+import 'models/user.dart';
 import 'service_locator.dart';
 
 void main() {
@@ -50,7 +51,10 @@ class _MyAppState extends State<MyApp> {
                         endIndent: 20,
                       ),
                       Initiatives(snapshot.data!),
-                      const BottomBar(),
+                      BottomBar(
+                        User('Giuseppe', 'Migliaccio',
+                            'https://cdn.dribbble.com/users/81809/screenshots/3347540/gokussj.jpg'),
+                      ),
                     ],
                   );
                 }),
