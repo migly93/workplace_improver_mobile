@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:workplace_improver_mobile/models/user.dart';
-import 'package:workplace_improver_mobile/widgets/user_circle/user_circle.dart';
+import '../../../models/user.dart';
+import '../../user_circle/user_circle.dart';
 
 // ignore: must_be_immutable
 class InitiativeHeaderOwner extends StatelessWidget {

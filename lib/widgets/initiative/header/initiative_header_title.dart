@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:workplace_improver_mobile/utils/constants.dart';
+import '../../../utils/constants.dart';
 
 // ignore: must_be_immutable
 class InitiativeHeaderTitle extends StatelessWidget {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:workplace_improver_mobile/models/user.dart';
-import 'package:workplace_improver_mobile/utils/utilities.dart';
-import 'package:workplace_improver_mobile/widgets/initiative/initiative_header_edit.dart';
-import 'package:workplace_improver_mobile/widgets/initiative/initiative_header_owner.dart';
-import 'package:workplace_improver_mobile/widgets/initiative/initiative_header_title.dart';
+import '../../../models/user.dart';
+import '../../../utils/utilities.dart';
+import 'initiative_header_edit.dart';
+import 'initiative_header_owner.dart';
+import 'initiative_header_title.dart';
 
 // ignore: must_be_immutable
 class InitiativeHeader extends StatelessWidget {

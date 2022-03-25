@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:workplace_improver_mobile/widgets/initiative/initiative_footer_tag.dart';
+import 'initiative_footer_tag.dart';
 
 // ignore: must_be_immutable
 class InitiativeFooterTags extends StatelessWidget {

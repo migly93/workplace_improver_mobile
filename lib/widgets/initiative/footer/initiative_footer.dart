@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:workplace_improver_mobile/widgets/initiative/initiative_footer_icon.dart';
-import 'package:workplace_improver_mobile/widgets/initiative/initiative_footer_tags.dart';
+import 'initiative_footer_icon.dart';
+import 'initiative_footer_tags.dart';
 
 class InitiativeFooter extends StatelessWidget {
   final int _likes;

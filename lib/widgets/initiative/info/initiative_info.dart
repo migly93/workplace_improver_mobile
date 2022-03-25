@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:workplace_improver_mobile/widgets/initiative/initiative_info_creation_date.dart';
-import 'package:workplace_improver_mobile/widgets/initiative/initiative_info_status.dart';
+import 'initiative_info_creation_date.dart';
+import 'initiative_info_status.dart';
 
 // ignore: must_be_immutable
 class InitiativeInfo extends StatelessWidget {
