@@ -24,6 +24,7 @@ class InitiativeServiceImpl extends InitiativeService {
         DateTime.now(),
         4,
         ["comment 1", "Comment 2", "Comment 3"],
+        ["#tag1", "#tag2", "#tag3", "#tag4", "#tag5", "#tag6"],
         User('Giuseppe', 'Migliaccio'),
       ),
       Initiative(
@@ -33,6 +34,7 @@ class InitiativeServiceImpl extends InitiativeService {
         DateTime.now(),
         45,
         ["comment 1", "Comment 2", "Comment 3"],
+        ["#tag1", "#tag2", "#tag3", "#tag4", "#tag5", "#tag6"],
         User('Cristina', 'Moran'),
       ),
       Initiative(
@@ -42,6 +44,7 @@ class InitiativeServiceImpl extends InitiativeService {
         DateTime.now(),
         8,
         ["comment 1", "Comment 2", "Comment 3"],
+        ["#tag1", "#tag2"],
         User('Noelia', 'Carrasco'),
       ),
       Initiative(
@@ -51,6 +54,7 @@ class InitiativeServiceImpl extends InitiativeService {
         DateTime.now(),
         2,
         ["comment 1", "Comment 2", "Comment 3"],
+        ["#tag1", "#tag2", "#tag3", "#tag4", "#tag5", "#tag6"],
         User('Noelia', 'Carrasco'),
       )
     ];

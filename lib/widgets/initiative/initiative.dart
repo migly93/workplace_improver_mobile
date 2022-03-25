@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:workplace_improver_mobile/initiative_footer.dart';
-import 'package:workplace_improver_mobile/initiative_header.dart';
-import 'package:workplace_improver_mobile/initiative_info.dart';
+import 'package:workplace_improver_mobile/widgets/initiative/initiative_description.dart';
+import 'package:workplace_improver_mobile/widgets/initiative/initiative_footer.dart';
 import 'package:workplace_improver_mobile/models/initiative.dart' as model;
 import 'package:workplace_improver_mobile/utils/constants.dart';
+import 'package:workplace_improver_mobile/widgets/initiative/initiative_header.dart';
+import 'package:workplace_improver_mobile/widgets/initiative/initiative_info.dart';
 
 class Initiative extends StatelessWidget {
   final model.Initiative _initiative;
@@ -22,24 +23,11 @@ class Initiative extends StatelessWidget {
             _initiative.status,
             _initiative.creationDate,
           ),
-          Container(
-            child: Text(
-              _initiative.description,
-              style: const TextStyle(
-                color: Colors.grey,
-                fontFamily: 'Roboto',
-                fontSize: 12,
-                overflow: TextOverflow.fade,
-              ),
-              textAlign: TextAlign.justify,
-            ),
-            width: 260,
-            height: 100,
-            margin: const EdgeInsets.all(8),
-          ),
+          InitiativeDescription(_initiative.description),
           InitiativeFooter(
             _initiative.likes,
             _initiative.comments.length,
+            _initiative.tags,
           ),
         ],
       ),

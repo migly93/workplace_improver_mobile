@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:workplace_improver_mobile/initiative.dart';
 import 'package:workplace_improver_mobile/services/initiative_service.dart';
-import 'package:workplace_improver_mobile/summary.dart';
+import 'package:workplace_improver_mobile/widgets/summary/summary.dart';
+import 'package:workplace_improver_mobile/widgets/initiatives/initiatives.dart';
 import 'models/initiative.dart' as model;
 import 'service_locator.dart';
 
@@ -39,14 +39,11 @@ class _MyAppState extends State<MyApp> {
                 future: loadData(),
                 builder: (BuildContext context,
                     AsyncSnapshot<List<model.Initiative>> snapshot) {
-                  return SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Summary(4, 2),
-                        for (int i = 0; i < snapshot.data!.length; i++)
-                          Initiative(snapshot.data![i]),
-                      ],
-                    ),
+                  return Column(
+                    children: [
+                      Summary(4, 2),
+                      Initiatives(snapshot.data!),
+                    ],
                   );
                 }),
           ),

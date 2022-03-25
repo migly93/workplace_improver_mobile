@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:workplace_improver_mobile/models/user.dart';
 import 'package:workplace_improver_mobile/utils/constants.dart';
 import 'package:workplace_improver_mobile/utils/utilities.dart';
-
-import 'models/user.dart';
 
 // ignore: must_be_immutable
 class InitiativeHeader extends StatelessWidget {

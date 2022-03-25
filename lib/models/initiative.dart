@@ -8,6 +8,7 @@ class Initiative {
   DateTime _creationDate = DateTime.now();
   int _likes = 0;
   List<String> _comments = [];
+  List<String> _tags = [];
   User _owner = User('', '');
 
 //default Constructor
@@ -18,6 +19,7 @@ class Initiative {
     DateTime creationDate,
     int likes,
     List<String> comments,
+    List<String> tags,
     User owner,
   ) {
     _title = title;
@@ -26,6 +28,7 @@ class Initiative {
     _creationDate = creationDate;
     _likes = likes;
     _comments = comments;
+    _tags = tags;
     _owner = owner;
   }
 
@@ -51,6 +54,10 @@ class Initiative {
 
   List<String> get comments {
     return _comments;
+  }
+
+  List<String> get tags {
+    return _tags;
   }
 
   User get owner {
