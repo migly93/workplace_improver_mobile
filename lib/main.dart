@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:workplace_improver_mobile/services/initiative_service.dart';
 import 'package:workplace_improver_mobile/utils/constants.dart';
+import 'package:workplace_improver_mobile/widgets/bottom_bar/bottom_bar.dart';
 import 'package:workplace_improver_mobile/widgets/summary/summary.dart';
 import 'package:workplace_improver_mobile/widgets/initiatives/initiatives.dart';
 import 'models/initiative.dart' as model;
@@ -49,6 +50,7 @@ class _MyAppState extends State<MyApp> {
                         endIndent: 20,
                       ),
                       Initiatives(snapshot.data!),
+                      const BottomBar(),
                     ],
                   );
                 }),
