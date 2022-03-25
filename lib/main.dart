@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:workplace_improver_mobile/initiative.dart';
-import 'package:workplace_improver_mobile/services/initiativeService.dart';
+import 'package:workplace_improver_mobile/services/initiative_service.dart';
 import 'package:workplace_improver_mobile/summary.dart';
-import 'models/InitiativeModel.dart';
+import 'models/initiative.dart' as model;
 import 'service_locator.dart';
 
 void main() {
   setupServiceLocator();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -20,10 +20,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  InitiativeService _initiativeService = getIt<InitiativeService>();
-  List<InitiativeModel> _initiatives = [];
+  final InitiativeService _initiativeService = getIt<InitiativeService>();
+  //final List<model.Initiative> _initiatives = [];
 
-  Future<List<InitiativeModel>> loadData() async {
+  Future<List<model.Initiative>> loadData() async {
     return _initiativeService.getAll();
   }
 
@@ -35,16 +35,18 @@ class _MyAppState extends State<MyApp> {
         body: Align(
           alignment: Alignment.center,
           child: SafeArea(
-            child: FutureBuilder<List<InitiativeModel>>(
+            child: FutureBuilder<List<model.Initiative>>(
                 future: loadData(),
                 builder: (BuildContext context,
-                    AsyncSnapshot<List<InitiativeModel>> snapshot) {
-                  return Column(
-                    children: [
-                      Summary(4, 2),
-                      for (int i = 0; i < snapshot.data!.length; i++)
-                        Initiative(snapshot.data![i]),
-                    ],
+                    AsyncSnapshot<List<model.Initiative>> snapshot) {
+                  return SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Summary(4, 2),
+                        for (int i = 0; i < snapshot.data!.length; i++)
+                          Initiative(snapshot.data![i]),
+                      ],
+                    ),
                   );
                 }),
           ),
