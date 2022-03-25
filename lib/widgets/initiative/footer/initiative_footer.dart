@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'initiative_footer_icon.dart';
+import 'initiative_footer_icons.dart';
 import 'initiative_footer_tags.dart';
 
 class InitiativeFooter extends StatelessWidget {
@@ -20,8 +20,7 @@ class InitiativeFooter extends StatelessWidget {
       child: Row(
         children: [
           InitiativeFooterTags(_tags),
-          InitiativeFooterIcon(_likes, Icons.favorite_outline),
-          InitiativeFooterIcon(_comments, Icons.reply_outlined),
+          InitiativeFooterIcons(_likes, _comments),
         ],
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
       ),

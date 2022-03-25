@@ -28,9 +28,8 @@ class InitiativeFooterIcon extends StatelessWidget {
             ),
           ),
         ],
-        mainAxisAlignment: MainAxisAlignment.center,
       ),
-      margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 4),
+      margin: const EdgeInsets.only(right: 8),
     );
   }
 }
