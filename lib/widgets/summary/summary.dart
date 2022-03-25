@@ -1,37 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:workplace_improver_mobile/widgets/summary/summary_line.dart';
 
 // ignore: must_be_immutable
 class Summary extends StatelessWidget {
-  final int monthlyVotesLeft;
-  final int activeInitiatives;
+  final int _monthlyVotesLeft;
+  final int _activeInitiatives;
 
-  String monthlyVotesLeftMessage = '';
-  String activeInitiativesMessage = '';
+  final String _firstPartText = "You have ";
+  final String _secondPartTextVotes = " votes left.";
+  final String _secondPartTextInitiatives = " active initiatives.";
 
-  Summary(this.monthlyVotesLeft, this.activeInitiatives, {Key? key})
-      : super(key: key) {
-    monthlyVotesLeftMessage = 'You have $monthlyVotesLeft votes left.';
-    activeInitiativesMessage =
-        'You have $activeInitiatives active initiatives.';
-  }
+  const Summary(this._monthlyVotesLeft, this._activeInitiatives, {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          monthlyVotesLeftMessage,
-          style: const TextStyle(
-            color: Colors.pinkAccent,
+    return Container(
+      child: Column(
+        children: [
+          SummaryLine(
+            _monthlyVotesLeft,
+            _firstPartText,
+            _secondPartTextVotes,
           ),
-        ),
-        Text(
-          activeInitiativesMessage,
-          style: const TextStyle(
-            color: Colors.pinkAccent,
+          SummaryLine(
+            _activeInitiatives,
+            _firstPartText,
+            _secondPartTextInitiatives,
           ),
-        ),
-      ],
+        ],
+      ),
+      margin: const EdgeInsets.fromLTRB(0, 20, 0, 10),
     );
   }
 }

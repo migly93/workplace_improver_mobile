@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workplace_improver_mobile/services/initiative_service.dart';
+import 'package:workplace_improver_mobile/utils/constants.dart';
 import 'package:workplace_improver_mobile/widgets/summary/summary.dart';
 import 'package:workplace_improver_mobile/widgets/initiatives/initiatives.dart';
 import 'models/initiative.dart' as model;
@@ -41,7 +42,12 @@ class _MyAppState extends State<MyApp> {
                     AsyncSnapshot<List<model.Initiative>> snapshot) {
                   return Column(
                     children: [
-                      Summary(4, 2),
+                      const Summary(4, 2),
+                      const Divider(
+                        color: mainGrey,
+                        indent: 20,
+                        endIndent: 20,
+                      ),
                       Initiatives(snapshot.data!),
                     ],
                   );
