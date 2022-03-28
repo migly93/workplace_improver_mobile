@@ -16,7 +16,7 @@ class BottomBar extends StatelessWidget {
       child: Row(
         children: [
           const BottomBarIcon(Icons.home_outlined),
-          const BottomBarIcon(Icons.add_outlined),
+          const BottomBarIcon(Icons.add_circle_outlined),
           UserCircle(_user, 20),
         ],
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
