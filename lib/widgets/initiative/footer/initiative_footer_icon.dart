@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../utils/constants.dart';
 
@@ -16,10 +17,14 @@ class InitiativeFooterIcon extends StatelessWidget {
     return Container(
       child: Row(
         children: [
-          Icon(
-            _icon,
-            color: mainColor,
-            size: 28.0,
+          CupertinoButton(
+            minSize: 28,
+            padding: EdgeInsets.zero,
+            child: Icon(
+              _icon,
+              color: mainColor,
+            ),
+            onPressed: null,
           ),
           Text(
             _number.toString(),
@@ -29,7 +34,7 @@ class InitiativeFooterIcon extends StatelessWidget {
           ),
         ],
       ),
-      margin: const EdgeInsets.only(right: 8),
+      margin: const EdgeInsets.symmetric(horizontal: 3),
     );
   }
 }
