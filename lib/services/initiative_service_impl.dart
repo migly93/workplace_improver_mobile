@@ -36,7 +36,8 @@ class InitiativeServiceImpl extends InitiativeService {
         45,
         ["comment 1", "Comment 2", "Comment 3"],
         ["#tag1", "#tag2", "#tag3", "#tag4", "#tag5", "#tag6"],
-        User('Cristina', 'Moran', ''),
+        User('Cristina', 'Moran',
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt_YdhVcfSALkr-boct2kimVsDKkwtkjRDtA&usqp=CAU'),
       ),
       Initiative(
         "Title 3",

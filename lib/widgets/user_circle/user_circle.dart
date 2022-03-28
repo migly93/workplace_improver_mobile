@@ -22,7 +22,7 @@ class UserCircle extends StatelessWidget {
   Widget build(BuildContext context) {
     return CircleAvatar(
       backgroundImage: NetworkImage(_user.imageUrl),
-      backgroundColor: mainColor,
+      backgroundColor: _user.imageUrl == '' ? mainColor : secondaryColor,
       radius: _radius,
       child: _user.imageUrl == ''
           ? Text(
