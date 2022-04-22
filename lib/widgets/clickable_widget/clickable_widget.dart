@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class InvisibleButton extends StatelessWidget {
+class ClickableWidget extends StatelessWidget {
   final Widget child;
   final VoidCallback onPressed;
 
   String initials = '';
-  InvisibleButton(
+  ClickableWidget(
     this.child,
     this.onPressed, {
     Key? key,

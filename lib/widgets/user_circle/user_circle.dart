@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:workplace_improver_mobile/models/user.dart';
 import 'package:workplace_improver_mobile/utils/constants.dart';
 import 'package:workplace_improver_mobile/utils/utilities.dart';
-import 'package:workplace_improver_mobile/widgets/invisible_button/invisible_button.dart';
+import 'package:workplace_improver_mobile/widgets/clickable_widget/clickable_widget.dart';
 
 // ignore: must_be_immutable
 class UserCircle extends StatelessWidget {
@@ -24,7 +24,7 @@ class UserCircle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InvisibleButton(
+    return ClickableWidget(
       CircleAvatar(
         backgroundImage: NetworkImage(_user.imageUrl),
         backgroundColor: _user.imageUrl == '' ? mainColor : secondaryColor,
