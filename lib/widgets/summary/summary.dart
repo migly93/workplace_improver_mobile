@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:workplace_improver_mobile/utils/constants.dart';
 import 'package:workplace_improver_mobile/widgets/summary/summary_line.dart';
 
 // ignore: must_be_immutable
@@ -27,6 +28,11 @@ class Summary extends StatelessWidget {
             _activeInitiatives,
             _firstPartText,
             _secondPartTextInitiatives,
+          ),
+          Divider(
+            color: mainGrey,
+            indent: 20,
+            endIndent: 20,
           ),
         ],
       ),

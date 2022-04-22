@@ -23,28 +23,15 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final InitiativeService _initiativeService = getIt<InitiativeService>();
-
-  Future<List<model.Initiative>> loadData() async {
-    return _initiativeService.getAll();
-  }
-
   @override
   Widget build(BuildContext context) {
-    loadData();
     return MaterialApp(
       home: Scaffold(
-        body: Align(
-          alignment: Alignment.center,
+        body: Center(
           child: SafeArea(
             child: Column(
               children: [
                 const Summary(4, 2),
-                Divider(
-                  color: mainGrey,
-                  indent: 20,
-                  endIndent: 20,
-                ),
                 Initiatives(),
                 BottomBar(
                   User(
