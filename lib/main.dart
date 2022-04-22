@@ -24,7 +24,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final InitiativeService _initiativeService = getIt<InitiativeService>();
-  //final List<model.Initiative> _initiatives = [];
 
   Future<List<model.Initiative>> loadData() async {
     return _initiativeService.getAll();
@@ -52,8 +51,12 @@ class _MyAppState extends State<MyApp> {
                       ),
                       Initiatives(snapshot.data!),
                       BottomBar(
-                        User('Giuseppe', 'Migliaccio',
-                            'https://cdn.dribbble.com/users/81809/screenshots/3347540/gokussj.jpg'),
+                        User(
+                          firstName: 'Giuseppe',
+                          lastName: 'Migliaccio',
+                          imageUrl:
+                              'https://cdn.dribbble.com/users/81809/screenshots/3347540/gokussj.jpg',
+                        ),
                       ),
                     ],
                   );
