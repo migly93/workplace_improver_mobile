@@ -37,30 +37,25 @@ class _MyAppState extends State<MyApp> {
         body: Align(
           alignment: Alignment.center,
           child: SafeArea(
-            child: FutureBuilder<List<model.Initiative>>(
-                future: loadData(),
-                builder: (BuildContext context,
-                    AsyncSnapshot<List<model.Initiative>> snapshot) {
-                  return Column(
-                    children: [
-                      const Summary(4, 2),
-                      Divider(
-                        color: mainGrey,
-                        indent: 20,
-                        endIndent: 20,
-                      ),
-                      Initiatives(snapshot.data!),
-                      BottomBar(
-                        User(
-                          firstName: 'Giuseppe',
-                          lastName: 'Migliaccio',
-                          imageUrl:
-                              'https://cdn.dribbble.com/users/81809/screenshots/3347540/gokussj.jpg',
-                        ),
-                      ),
-                    ],
-                  );
-                }),
+            child: Column(
+              children: [
+                const Summary(4, 2),
+                Divider(
+                  color: mainGrey,
+                  indent: 20,
+                  endIndent: 20,
+                ),
+                Initiatives(),
+                BottomBar(
+                  User(
+                    firstName: 'Giuseppe',
+                    lastName: 'Migliaccio',
+                    imageUrl:
+                        'https://cdn.dribbble.com/users/81809/screenshots/3347540/gokussj.jpg',
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
