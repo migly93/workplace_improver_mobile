@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:workplace_improver_mobile/models/initiative.dart' as model;
 import 'package:workplace_improver_mobile/services/initiative_service.dart';
 import 'package:workplace_improver_mobile/widgets/initiative/initiative.dart';
+import 'package:workplace_improver_mobile/widgets/initiatives/no_initiatives_message.dart';
 
 import '../../service_locator.dart';
 
@@ -16,16 +17,18 @@ class Initiatives extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    loadData();
     return FutureBuilder<List<model.Initiative>>(
-        future: loadData(),
-        builder: (BuildContext context,
-            AsyncSnapshot<List<model.Initiative>> response) {
-          return Expanded(
-            child: ListView(
-              children: response.data!.map((e) => Initiative(e)).toList(),
-            ),
-          );
-        });
+      future: loadData(),
+      builder: (context, snapshot) {
+        return snapshot.hasData && snapshot.data!.isNotEmpty
+            ? Expanded(
+                child: ListView.builder(
+                  itemCount: snapshot.data!.length,
+                  itemBuilder: (_, index) => Initiative(snapshot.data![index]),
+                ),
+              )
+            : const NoInitiativesMessage();
+      },
+    );
   }
 }
