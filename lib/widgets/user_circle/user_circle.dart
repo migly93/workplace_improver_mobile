@@ -39,7 +39,7 @@ class UserCircle extends StatelessWidget {
               )
             : null,
       ),
-      () => print("hello"),
+      () {},
     );
   }
 }
