@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:workplace_improver_mobile/utils/constants.dart';
 
-class BottomBarIcon extends StatelessWidget {
+class BottomNavBarIcon extends StatelessWidget {
   final IconData _icon;
+  final Color _color;
 
-  const BottomBarIcon(
-    this._icon, {
+  const BottomNavBarIcon(
+    this._icon,
+    this._color, {
     Key? key,
   }) : super(key: key);
 
@@ -13,7 +14,7 @@ class BottomBarIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Icon(
       _icon,
-      color: mainColor,
+      color: _color,
       size: 40,
     );
   }
