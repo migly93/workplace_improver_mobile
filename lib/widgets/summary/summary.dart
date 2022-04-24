@@ -4,15 +4,18 @@ import 'package:workplace_improver_mobile/widgets/summary/summary_line.dart';
 
 // ignore: must_be_immutable
 class Summary extends StatelessWidget {
-  final int _monthlyVotesLeft;
-  final int _activeInitiatives;
+  final int? monthlyVotesLeft;
+  final int? activeInitiatives;
 
   final String _firstPartText = "You have ";
   final String _secondPartTextVotes = " votes left.";
   final String _secondPartTextInitiatives = " active initiatives.";
 
-  const Summary(this._monthlyVotesLeft, this._activeInitiatives, {Key? key})
-      : super(key: key);
+  const Summary({
+    Key? key,
+    this.monthlyVotesLeft = 0,
+    this.activeInitiatives = 0,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +23,12 @@ class Summary extends StatelessWidget {
       child: Column(
         children: [
           SummaryLine(
-            _monthlyVotesLeft,
+            monthlyVotesLeft!,
             _firstPartText,
             _secondPartTextVotes,
           ),
           SummaryLine(
-            _activeInitiatives,
+            activeInitiatives!,
             _firstPartText,
             _secondPartTextInitiatives,
           ),
@@ -36,7 +39,7 @@ class Summary extends StatelessWidget {
           ),
         ],
       ),
-      margin: const EdgeInsets.fromLTRB(0, 20, 0, 10),
+      margin: const EdgeInsets.fromLTRB(0, 8, 0, 4),
     );
   }
 }
