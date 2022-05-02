@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class BottomNavBarIcon extends StatelessWidget {
-  final IconData _icon;
-  final Color _color;
+  final IconData icon;
+  final Color color;
+  double? size;
 
-  const BottomNavBarIcon(
-    this._icon,
-    this._color, {
-    Key? key,
-  }) : super(key: key);
+  BottomNavBarIcon(
+      {Key? key, required this.icon, required this.color, this.size = 34})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Icon(
-      _icon,
-      color: _color,
-      size: 40,
+      icon,
+      color: color,
+      size: size ?? 30,
     );
   }
 }
