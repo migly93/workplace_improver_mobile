@@ -24,15 +24,6 @@ class _MyAppState extends State<MyApp> {
   late PageController pageController;
   int _page = 0;
 
-  final List<Widget> pages = [
-    const HomePage(
-      monthlyVotesLeft: 4,
-      activeInitiatives: 2,
-    ),
-    InitiativeForm(),
-    const Text("hello")
-  ];
-
   @override
   void initState() {
     super.initState();
@@ -62,7 +53,16 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: SafeArea(
             child: PageView(
-              children: pages,
+              children: [
+                const HomePage(
+                  monthlyVotesLeft: 4,
+                  activeInitiatives: 2,
+                ),
+                InitiativeForm(
+                  backToHome: navigationTapped,
+                ),
+                const Text("hello")
+              ],
               physics: const NeverScrollableScrollPhysics(),
               controller: pageController,
               onPageChanged: onPageChanged,
