@@ -1,40 +1,80 @@
 import 'package:flutter/cupertino.dart';
+import 'package:workplace_improver_mobile/utils/constants.dart';
 
 // ignore: must_be_immutable
-class InitiativeFormTextField extends StatelessWidget {
+class InitiativeFormTextField extends StatefulWidget {
   final String placeholder;
-  final TextInputAction textInputAction;
   final TextEditingController controller;
-  int? maxLines;
-  bool autofocus;
+  final TextInputAction? textInputAction;
+  final int? maxLines;
+  final bool autofocus;
+  final bool required;
 
-  InitiativeFormTextField({
+  const InitiativeFormTextField({
     Key? key,
     required this.placeholder,
-    required this.textInputAction,
-    this.maxLines,
     required this.controller,
+    this.textInputAction,
+    this.maxLines,
     this.autofocus = false,
+    this.required = true,
   }) : super(key: key);
+
+  @override
+  State<InitiativeFormTextField> createState() =>
+      _InitiativeFormTextFieldState();
+}
+
+class _InitiativeFormTextFieldState extends State<InitiativeFormTextField> {
+  final _focusNode = FocusNode();
+
+  bool _touched = false;
+
+  late BoxDecoration _boxDecoration = normalInputTextFieldBorder;
+
+  @override
+  void initState() {
+    super.initState();
+    _boxDecoration = normalInputTextFieldBorder;
+    _focusNode.addListener(_changeTextFieldBorder);
+    widget.controller.addListener(_changeTextFieldBorder);
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    widget.controller.dispose();
+    super.dispose();
+  }
+
+  _changeTextFieldBorder() {
+    setState(() {
+      bool isEmpty = widget.controller.text.isEmpty;
+      bool hasFocus = _focusNode.hasFocus;
+      _touched = _touched ? _touched : hasFocus;
+
+      _boxDecoration = widget.required && _touched && isEmpty
+          ? invalidInputTextFieldBorder
+          : hasFocus
+              ? vaildInputTextFieldBorder
+              : normalInputTextFieldBorder;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: CupertinoTextField(
-        placeholder: placeholder,
+        placeholder: widget.placeholder,
         autocorrect: true,
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: CupertinoColors.lightBackgroundGray,
-            width: 1,
-          ),
-          borderRadius: BorderRadius.circular(10),
-        ),
+        decoration: _boxDecoration,
         padding: const EdgeInsets.all(8),
-        textInputAction: textInputAction,
-        maxLines: maxLines ?? 1,
-        controller: controller,
-        autofocus: autofocus,
+        textInputAction: widget.textInputAction ?? TextInputAction.next,
+        maxLines: widget.maxLines ?? 1,
+        controller: widget.controller,
+        autofocus: widget.autofocus,
+        cursorColor: mainColor,
+        focusNode: _focusNode,
       ),
       margin: const EdgeInsets.only(bottom: 16),
     );
