@@ -15,16 +15,14 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: SafeArea(
-        child: Column(
-          children: [
-            Summary(
-              monthlyVotesLeft: monthlyVotesLeft,
-              activeInitiatives: activeInitiatives,
-            ),
-            Initiatives(),
-          ],
-        ),
+      child: Column(
+        children: [
+          Summary(
+            monthlyVotesLeft: monthlyVotesLeft,
+            activeInitiatives: activeInitiatives,
+          ),
+          Initiatives(),
+        ],
       ),
     );
   }
