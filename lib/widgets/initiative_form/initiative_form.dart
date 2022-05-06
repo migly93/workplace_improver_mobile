@@ -47,14 +47,6 @@ class _InitiativeFormState extends State<InitiativeForm> {
         _titleController.text.isEmpty || _descriptionController.text.isEmpty);
   }
 
-  @override
-  void dispose() {
-    _titleController.dispose();
-    _descriptionController.dispose();
-    _tagsController.dispose();
-    super.dispose();
-  }
-
   _saveInitiative() {
     final initiative = Initiative(
       title: _titleController.text,
@@ -72,7 +64,6 @@ class _InitiativeFormState extends State<InitiativeForm> {
     _descriptionController.clear();
     _tagsController.clear();
     _initiativeService.createInitiative(initiative);
-    dispose();
     widget.backToHome(0);
   }
 

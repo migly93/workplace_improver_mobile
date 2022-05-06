@@ -40,13 +40,6 @@ class _InitiativeFormTextFieldState extends State<InitiativeFormTextField> {
     widget.controller.addListener(_changeTextFieldBorder);
   }
 
-  @override
-  void dispose() {
-    _focusNode.dispose();
-    widget.controller.dispose();
-    super.dispose();
-  }
-
   _changeTextFieldBorder() {
     setState(() {
       bool isEmpty = widget.controller.text.isEmpty;
