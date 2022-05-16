@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import '../../../utils/constants.dart';
 
 class InitiativeFooterTag extends StatelessWidget {
-  final String _tag;
+  final String tag;
 
-  const InitiativeFooterTag(
-    this._tag, {
+  const InitiativeFooterTag({
     Key? key,
+    required this.tag,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Text(
-        _tag,
+        tag,
         style: TextStyle(
           color: mainColor,
           fontFamily: mainFont,
@@ -24,7 +24,10 @@ class InitiativeFooterTag extends StatelessWidget {
         ),
         textAlign: TextAlign.justify,
       ),
-      padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 6),
+      padding: const EdgeInsets.symmetric(
+        vertical: 0,
+        horizontal: 6,
+      ),
     );
   }
 }

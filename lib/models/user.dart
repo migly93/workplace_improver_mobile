@@ -1,13 +1,17 @@
 class User {
-//These are the values that this Demo model can store
+  int id;
   String firstName;
   String lastName;
   String imageUrl;
+  int activeInitiatives;
+  int monthlyVotesLeft;
 
-//default Constructor
   User({
+    required this.id,
     required this.firstName,
     required this.lastName,
     required this.imageUrl,
+    this.activeInitiatives = 0,
+    this.monthlyVotesLeft = 5,
   });
 }

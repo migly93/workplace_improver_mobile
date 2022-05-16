@@ -1,26 +1,33 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:workplace_improver_mobile/utils/constants.dart';
+import 'package:workplace_improver_mobile/models/user.dart';
+import 'package:workplace_improver_mobile/services/user_service.dart';
 import 'package:workplace_improver_mobile/widgets/bottom_nav_bar/bottom_nav_bar_icon.dart';
 import 'package:workplace_improver_mobile/widgets/home_page/home_page.dart';
 import 'package:workplace_improver_mobile/widgets/initiative_form/initiative_form.dart';
 
-class HomeComponent extends StatefulWidget {
-  const HomeComponent({Key? key}) : super(key: key);
+import '../../service_locator.dart';
+
+class HomeWidget extends StatefulWidget {
+  const HomeWidget({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return _HomeComponentState();
+    return _HomeWidgetState();
   }
 }
 
-class _HomeComponentState extends State<HomeComponent> {
+class _HomeWidgetState extends State<HomeWidget> {
+  final UserService _userService = getIt<UserService>();
+
   late PageController pageController;
+  late User _loggedUser;
   int _page = 0;
 
   @override
-  void initState() {
+  initState() {
     super.initState();
+    _loggedUser = _userService.getLoggedUser();
     pageController = PageController();
   }
 
@@ -47,11 +54,11 @@ class _HomeComponentState extends State<HomeComponent> {
         child: SafeArea(
           child: PageView(
             children: [
-              const HomePage(
-                monthlyVotesLeft: 4,
-                activeInitiatives: 2,
+              HomePage(
+                loggedUser: _loggedUser,
               ),
               InitiativeForm(
+                loggedUser: _loggedUser,
                 backToHome: navigationTapped,
               ),
               const Text("hello")
@@ -67,22 +74,19 @@ class _HomeComponentState extends State<HomeComponent> {
           BottomNavigationBarItem(
             icon: BottomNavBarIcon(
               icon: CupertinoIcons.home,
-              color: _page == 0 ? mainColor : mainGrey,
-              size: _page == 0 ? 36 : null,
+              pressed: _page == 0,
             ),
           ),
           BottomNavigationBarItem(
             icon: BottomNavBarIcon(
               icon: CupertinoIcons.add_circled,
-              color: _page == 1 ? mainColor : mainGrey,
-              size: _page == 1 ? 36 : null,
+              pressed: _page == 1,
             ),
           ),
           BottomNavigationBarItem(
             icon: BottomNavBarIcon(
               icon: CupertinoIcons.person_alt_circle,
-              color: _page == 2 ? mainColor : mainGrey,
-              size: _page == 2 ? 36 : null,
+              pressed: _page == 2,
             ),
           ),
         ],

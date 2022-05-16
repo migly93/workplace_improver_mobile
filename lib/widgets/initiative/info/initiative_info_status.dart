@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import '../../../utils/constants.dart';
 
-// ignore: must_be_immutable
 class InitiativeInfoStatus extends StatelessWidget {
-  final String _status;
+  final String status;
 
-  String dateText = '';
-
-  InitiativeInfoStatus(
-    this._status, {
+  const InitiativeInfoStatus({
     Key? key,
+    required this.status,
   }) : super(key: key);
 
   @override
@@ -22,7 +19,7 @@ class InitiativeInfoStatus extends StatelessWidget {
           size: 20.0,
         ),
         Text(
-          _status,
+          status,
           style: TextStyle(
             color: mainColor,
           ),

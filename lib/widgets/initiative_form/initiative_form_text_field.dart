@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:workplace_improver_mobile/utils/constants.dart';
 
-// ignore: must_be_immutable
 class InitiativeFormTextField extends StatefulWidget {
   final String placeholder;
   final TextEditingController controller;

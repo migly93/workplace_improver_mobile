@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import '../../../utils/constants.dart';
 
-// ignore: must_be_immutable
 class InitiativeHeaderTitle extends StatelessWidget {
-  final String _title;
-  String initials = '';
-  InitiativeHeaderTitle(
-    this._title, {
+  final String title;
+
+  const InitiativeHeaderTitle({
     Key? key,
+    required this.title,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      _title,
+      title,
       style: TextStyle(
         color: mainColor,
         fontFamily: mainFont,

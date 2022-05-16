@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import '../../../utils/constants.dart';
 
 class InitiativeDescription extends StatelessWidget {
-  final String _description;
+  final String description;
 
-  const InitiativeDescription(
-    this._description, {
+  const InitiativeDescription({
     Key? key,
+    required this.description,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Text(
-        _description,
-        style: const TextStyle(
-          color: Colors.grey,
+        description,
+        style: TextStyle(
+          color: mainGrey,
           fontFamily: mainFont,
           fontSize: 12,
           overflow: TextOverflow.fade,

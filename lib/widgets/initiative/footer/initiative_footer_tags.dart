@@ -1,27 +1,32 @@
 import 'package:flutter/material.dart';
 import 'initiative_footer_tag.dart';
 
-// ignore: must_be_immutable
 class InitiativeFooterTags extends StatelessWidget {
-  final List<String> _tags;
-  List<String> _tagsToPrint = [];
+  final List<String> tags;
 
-  InitiativeFooterTags(
-    this._tags, {
+  const InitiativeFooterTags({
     Key? key,
-  }) : super(key: key) {
-    _tagsToPrint = _tags.take(3).toList();
-  }
+    required this.tags,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Row(
-        children: _tagsToPrint.map((e) => InitiativeFooterTag(e)).toList(),
+        children: tags
+            .take(3)
+            .toList()
+            .map((e) => InitiativeFooterTag(
+                  tag: e,
+                ))
+            .toList(),
         mainAxisAlignment: MainAxisAlignment.start,
       ),
       width: 200,
-      margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 8),
+      margin: const EdgeInsets.symmetric(
+        vertical: 0,
+        horizontal: 8,
+      ),
     );
   }
 }

@@ -2,23 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../../../utils/constants.dart';
 
-// ignore: must_be_immutable
 class InitiativeInfoCreationDate extends StatelessWidget {
-  final DateTime _creationDate;
+  final DateTime creationDate;
 
-  String dateText = '';
-
-  InitiativeInfoCreationDate(
-    this._creationDate, {
+  const InitiativeInfoCreationDate({
     Key? key,
-  }) : super(key: key) {
-    dateText = "Created: " + DateFormat('dd-MM-yyyy').format(_creationDate);
-  }
+    required this.creationDate,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      dateText,
+      "Created: ${DateFormat('dd-MM-yyyy').format(creationDate)}",
       style: TextStyle(
         color: mainColor,
         fontFamily: mainFont,

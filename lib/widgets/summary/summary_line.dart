@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:workplace_improver_mobile/utils/constants.dart';
 
-// ignore: must_be_immutable
 class SummaryLine extends StatelessWidget {
-  final int _numberValue;
-  final String _firstPartText;
-  final String _secondPartText;
+  final int value;
+  final String firstPartText;
+  final String secondPartText;
 
-  const SummaryLine(
-      this._numberValue, this._firstPartText, this._secondPartText,
-      {Key? key})
-      : super(key: key);
+  const SummaryLine({
+    Key? key,
+    required this.value,
+    required this.firstPartText,
+    required this.secondPartText,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +25,18 @@ class SummaryLine extends StatelessWidget {
           overflow: TextOverflow.fade,
         ),
         children: <TextSpan>[
-          TextSpan(text: _firstPartText),
           TextSpan(
-            text: _numberValue.toString(),
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            text: firstPartText,
           ),
-          TextSpan(text: _secondPartText),
+          TextSpan(
+            text: value.toString(),
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: secondPartText,
+          ),
         ],
       ),
     );

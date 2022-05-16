@@ -7,16 +7,16 @@ import 'package:workplace_improver_mobile/widgets/initiative_form/initiative_for
 import 'package:workplace_improver_mobile/widgets/initiative_form/initiative_form_text_field.dart';
 import 'package:workplace_improver_mobile/widgets/initiative_form/initiative_form_title.dart';
 
-// ignore: must_be_immutable
 class InitiativeForm extends StatefulWidget {
+  final User loggedUser;
   final Function backToHome;
+  final Initiative? initiative;
 
-  Initiative? initiative;
-
-  InitiativeForm({
+  const InitiativeForm({
     Key? key,
-    this.initiative,
+    required this.loggedUser,
     required this.backToHome,
+    this.initiative,
   }) : super(key: key);
 
   @override
@@ -37,6 +37,12 @@ class _InitiativeFormState extends State<InitiativeForm> {
   @override
   void initState() {
     super.initState();
+    _titleController.text =
+        widget.initiative != null ? widget.initiative!.title : '';
+    _descriptionController.text =
+        widget.initiative != null ? widget.initiative!.description : '';
+    _tagsController.text =
+        widget.initiative != null ? widget.initiative!.tags.join(" ") : '';
     _titleController.addListener(_updateIsButtonDisabled);
     _descriptionController.addListener(_updateIsButtonDisabled);
     _updateIsButtonDisabled();
@@ -53,12 +59,7 @@ class _InitiativeFormState extends State<InitiativeForm> {
       description: _descriptionController.text,
       tags: _tagsController.text.split(" "),
       status: 'Created',
-      owner: User(
-        firstName: 'Giuseppe',
-        lastName: 'Migliaccio',
-        imageUrl:
-            'https://cdn.dribbble.com/users/81809/screenshots/3347540/gokussj.jpg',
-      ),
+      owner: widget.loggedUser,
     );
     _titleController.clear();
     _descriptionController.clear();

@@ -1,31 +1,34 @@
 import 'package:flutter/material.dart';
 import '../../../models/user.dart';
-import '../../../utils/utilities.dart';
 import 'initiative_header_edit.dart';
 import 'initiative_header_owner.dart';
 import 'initiative_header_title.dart';
 
-// ignore: must_be_immutable
 class InitiativeHeader extends StatelessWidget {
-  final String _title;
-  final User _owner;
-  String initials = '';
-  InitiativeHeader(
-    this._title,
-    this._owner, {
+  final User loggedUser;
+  final String title;
+  final User owner;
+
+  const InitiativeHeader({
     Key? key,
-  }) : super(key: key) {
-    initials = Utilities.getFirstLetter(_owner.firstName) +
-        Utilities.getFirstLetter(_owner.lastName);
-  }
+    required this.loggedUser,
+    required this.title,
+    required this.owner,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        InitiativeHeaderOwner(_owner),
-        InitiativeHeaderTitle(_title),
-        InitiativeHeaderEdit()
+        InitiativeHeaderOwner(
+          owner: owner,
+        ),
+        InitiativeHeaderTitle(
+          title: title,
+        ),
+        InitiativeHeaderEdit(
+          active: loggedUser.id == owner.id,
+        ),
       ],
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
     );

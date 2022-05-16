@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
 import '../../../utils/constants.dart';
 
-// ignore: must_be_immutable
 class InitiativeHeaderEdit extends StatelessWidget {
-  String initials = '';
-  InitiativeHeaderEdit({
+  final bool active;
+
+  const InitiativeHeaderEdit({
     Key? key,
+    required this.active,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Icon(
-        Icons.edit,
-        color: mainColor,
-        size: 26.0,
+      child: IconButton(
+        icon: Icon(
+          Icons.edit,
+          color: active ? mainColor : secondaryColor,
+          size: 26.0,
+        ),
+        onPressed: active ? () {} : null,
       ),
       margin: const EdgeInsets.all(10),
     );

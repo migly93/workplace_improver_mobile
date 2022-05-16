@@ -3,15 +3,15 @@ import 'initiative_footer_icons.dart';
 import 'initiative_footer_tags.dart';
 
 class InitiativeFooter extends StatelessWidget {
-  final int _likes;
-  final int _comments;
-  final List<String> _tags;
+  final int likes;
+  final int comments;
+  final List<String> tags;
 
-  const InitiativeFooter(
-    this._likes,
-    this._comments,
-    this._tags, {
+  const InitiativeFooter({
     Key? key,
+    required this.likes,
+    required this.comments,
+    required this.tags,
   }) : super(key: key);
 
   @override
@@ -19,8 +19,13 @@ class InitiativeFooter extends StatelessWidget {
     return Container(
       child: Row(
         children: [
-          InitiativeFooterTags(_tags),
-          InitiativeFooterIcons(_likes, _comments),
+          InitiativeFooterTags(
+            tags: tags,
+          ),
+          InitiativeFooterIcons(
+            likes: likes,
+            comments: comments,
+          ),
         ],
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
       ),

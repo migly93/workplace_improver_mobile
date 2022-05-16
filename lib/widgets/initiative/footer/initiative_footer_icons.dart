@@ -2,21 +2,27 @@ import 'package:flutter/material.dart';
 import 'initiative_footer_icon.dart';
 
 class InitiativeFooterIcons extends StatelessWidget {
-  final int _likes;
-  final int _comments;
+  final int likes;
+  final int comments;
 
-  const InitiativeFooterIcons(
-    this._likes,
-    this._comments, {
+  const InitiativeFooterIcons({
     Key? key,
+    required this.likes,
+    required this.comments,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        InitiativeFooterIcon(_likes, Icons.favorite_outline),
-        InitiativeFooterIcon(_comments, Icons.comment_outlined),
+        InitiativeFooterIcon(
+          value: likes,
+          icon: Icons.favorite_outline,
+        ),
+        InitiativeFooterIcon(
+          value: comments,
+          icon: Icons.comment_outlined,
+        ),
       ],
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
     );

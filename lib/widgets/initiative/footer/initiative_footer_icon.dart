@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import '../../../utils/constants.dart';
 
 class InitiativeFooterIcon extends StatelessWidget {
-  final int _number;
-  final IconData _icon;
+  final int value;
+  final IconData icon;
 
-  const InitiativeFooterIcon(
-    this._number,
-    this._icon, {
+  const InitiativeFooterIcon({
     Key? key,
+    required this.value,
+    required this.icon,
   }) : super(key: key);
 
   @override
@@ -21,13 +21,13 @@ class InitiativeFooterIcon extends StatelessWidget {
             minSize: 28,
             padding: EdgeInsets.zero,
             child: Icon(
-              _icon,
+              icon,
               color: mainColor,
             ),
             onPressed: null,
           ),
           Text(
-            _number.toString(),
+            value.toString(),
             style: TextStyle(
               color: mainColor,
             ),

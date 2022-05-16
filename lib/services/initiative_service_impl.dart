@@ -1,5 +1,5 @@
 import 'package:workplace_improver_mobile/models/initiative.dart';
-import 'package:workplace_improver_mobile/models/user.dart';
+import 'package:workplace_improver_mobile/utils/constants.dart';
 
 import 'initiative_service.dart';
 
@@ -13,12 +13,7 @@ class InitiativeServiceImpl extends InitiativeService {
       likes: 4,
       comments: ["comment 1", "Comment 2", "Comment 3"],
       tags: ["#tag1", "#tag2", "#tag3", "#tag4", "#tag5", "#tag6"],
-      owner: User(
-        firstName: 'Giuseppe',
-        lastName: 'Migliaccio',
-        imageUrl:
-            'https://cdn.dribbble.com/users/81809/screenshots/3347540/gokussj.jpg',
-      ),
+      owner: GIUSEPPE,
     ),
     Initiative(
       title: "Title 2",
@@ -28,12 +23,7 @@ class InitiativeServiceImpl extends InitiativeService {
       likes: 45,
       comments: ["comment 1", "Comment 2", "Comment 3"],
       tags: ["#tag1", "#tag2", "#tag3", "#tag4", "#tag5", "#tag6"],
-      owner: User(
-        firstName: 'Cristina',
-        lastName: 'Moran',
-        imageUrl:
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt_YdhVcfSALkr-boct2kimVsDKkwtkjRDtA&usqp=CAU',
-      ),
+      owner: CRISTINA,
     ),
     Initiative(
       title: "Title 3",
@@ -43,11 +33,7 @@ class InitiativeServiceImpl extends InitiativeService {
       likes: 8,
       comments: ["comment 1", "Comment 2", "Comment 3"],
       tags: ["#tag1", "#tag2"],
-      owner: User(
-        firstName: 'Noelia',
-        lastName: 'Carrasco',
-        imageUrl: '',
-      ),
+      owner: NOELIA,
     ),
     Initiative(
       title: "Title 4",
@@ -57,18 +43,9 @@ class InitiativeServiceImpl extends InitiativeService {
       likes: 2,
       comments: ["comment 1", "Comment 2", "Comment 3"],
       tags: ["#tag1", "#tag2", "#tag3", "#tag4", "#tag5", "#tag6"],
-      owner: User(
-        firstName: 'Noelia',
-        lastName: 'Carrasco',
-        imageUrl: '',
-      ),
+      owner: NOELIA,
     )
   ];
-
-  @override
-  Future<int> getCounterValue() async {
-    return 11;
-  }
 
   @override
   Future<void> createInitiative(Initiative initiative) async {

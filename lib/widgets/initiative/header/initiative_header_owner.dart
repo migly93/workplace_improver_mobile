@@ -2,19 +2,21 @@ import 'package:flutter/material.dart';
 import '../../../models/user.dart';
 import '../../user_circle/user_circle.dart';
 
-// ignore: must_be_immutable
 class InitiativeHeaderOwner extends StatelessWidget {
-  final User _owner;
-  String initials = '';
-  InitiativeHeaderOwner(
-    this._owner, {
+  final User owner;
+
+  const InitiativeHeaderOwner({
     Key? key,
+    required this.owner,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: UserCircle(_owner, 16),
+      child: UserCircle(
+        user: owner,
+        radius: 20,
+      ),
       margin: const EdgeInsets.all(10),
     );
   }

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:workplace_improver_mobile/models/user.dart';
 import 'package:workplace_improver_mobile/utils/constants.dart';
 import 'package:workplace_improver_mobile/widgets/summary/summary_line.dart';
 
-// ignore: must_be_immutable
 class Summary extends StatelessWidget {
-  final int? monthlyVotesLeft;
-  final int? activeInitiatives;
+  final User loggedUser;
 
   final String _firstPartText = "You have ";
   final String _secondPartTextVotes = " votes left.";
@@ -13,8 +12,7 @@ class Summary extends StatelessWidget {
 
   const Summary({
     Key? key,
-    this.monthlyVotesLeft = 0,
-    this.activeInitiatives = 0,
+    required this.loggedUser,
   }) : super(key: key);
 
   @override
@@ -23,14 +21,14 @@ class Summary extends StatelessWidget {
       child: Column(
         children: [
           SummaryLine(
-            monthlyVotesLeft!,
-            _firstPartText,
-            _secondPartTextVotes,
+            value: loggedUser.monthlyVotesLeft,
+            firstPartText: _firstPartText,
+            secondPartText: _secondPartTextVotes,
           ),
           SummaryLine(
-            activeInitiatives!,
-            _firstPartText,
-            _secondPartTextInitiatives,
+            value: loggedUser.activeInitiatives,
+            firstPartText: _firstPartText,
+            secondPartText: _secondPartTextInitiatives,
           ),
           Divider(
             color: mainGrey,

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:workplace_improver_mobile/widgets/home_widget/home_widget.dart';
 import 'service_locator.dart';
-import 'widgets/home_component/home_component.dart';
 
 void main() {
   setupServiceLocator();
@@ -15,7 +15,7 @@ class WorkplaceImprover extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Workplace Improver',
-      home: HomeComponent(),
+      home: HomeWidget(),
     );
   }
 }

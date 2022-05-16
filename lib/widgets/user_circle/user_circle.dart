@@ -5,41 +5,35 @@ import 'package:workplace_improver_mobile/utils/constants.dart';
 import 'package:workplace_improver_mobile/utils/utilities.dart';
 import 'package:workplace_improver_mobile/widgets/clickable_widget/clickable_widget.dart';
 
-// ignore: must_be_immutable
 class UserCircle extends StatelessWidget {
-  final User _user;
-  final double _radius;
+  final User user;
+  final double radius;
 
-  String initials = '';
-  UserCircle(
-    this._user,
-    this._radius, {
+  const UserCircle({
     Key? key,
-  }) : super(key: key) {
-    initials = Utilities.getFirstLetter(_user.firstName) +
-        Utilities.getFirstLetter(_user.lastName);
-  }
-
-  double opacity = 1.0;
+    required this.user,
+    required this.radius,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ClickableWidget(
-      CircleAvatar(
-        backgroundImage: NetworkImage(_user.imageUrl),
-        backgroundColor: _user.imageUrl == '' ? mainColor : secondaryColor,
-        radius: _radius,
-        child: _user.imageUrl == ''
+      child: CircleAvatar(
+        backgroundImage: NetworkImage(user.imageUrl),
+        backgroundColor: user.imageUrl == '' ? mainColor : secondaryColor,
+        radius: radius,
+        child: user.imageUrl == ''
             ? Text(
-                initials,
+                Utilities.getFullNameInitials(user.firstName, user.lastName),
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: secondaryColor,
+                  fontSize: 18,
                 ),
               )
             : null,
       ),
-      () {},
+      onPressed: () {},
     );
   }
 }
