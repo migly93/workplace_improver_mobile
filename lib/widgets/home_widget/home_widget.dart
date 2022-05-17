@@ -5,6 +5,7 @@ import 'package:workplace_improver_mobile/services/user_service.dart';
 import 'package:workplace_improver_mobile/widgets/bottom_nav_bar/bottom_nav_bar_icon.dart';
 import 'package:workplace_improver_mobile/widgets/home_page/home_page.dart';
 import 'package:workplace_improver_mobile/widgets/initiative_form/initiative_form.dart';
+import 'package:workplace_improver_mobile/widgets/user_profile/user_profile.dart';
 
 import '../../service_locator.dart';
 
@@ -23,6 +24,11 @@ class _HomeWidgetState extends State<HomeWidget> {
   late PageController pageController;
   late User _loggedUser;
   int _page = 0;
+  final _pagesIcons = [
+    CupertinoIcons.home,
+    CupertinoIcons.add_circled,
+    CupertinoIcons.person_alt_circle,
+  ];
 
   @override
   initState() {
@@ -42,9 +48,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   }
 
   void onPageChanged(int page) {
-    setState(() {
-      _page = page;
-    });
+    setState(() => _page = page);
   }
 
   @override
@@ -61,7 +65,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                 loggedUser: _loggedUser,
                 backToHome: navigationTapped,
               ),
-              const Text("hello")
+              UserProfile(
+                loggedUser: _loggedUser,
+              ),
             ],
             physics: const NeverScrollableScrollPhysics(),
             controller: pageController,
@@ -70,26 +76,14 @@ class _HomeWidgetState extends State<HomeWidget> {
         ),
       ),
       bottomNavigationBar: CupertinoTabBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: BottomNavBarIcon(
-              icon: CupertinoIcons.home,
-              pressed: _page == 0,
-            ),
-          ),
-          BottomNavigationBarItem(
-            icon: BottomNavBarIcon(
-              icon: CupertinoIcons.add_circled,
-              pressed: _page == 1,
-            ),
-          ),
-          BottomNavigationBarItem(
-            icon: BottomNavBarIcon(
-              icon: CupertinoIcons.person_alt_circle,
-              pressed: _page == 2,
-            ),
-          ),
-        ],
+        items: _pagesIcons
+            .map((icon) => BottomNavigationBarItem(
+                  icon: BottomNavBarIcon(
+                    icon: icon,
+                    pressed: _page == _pagesIcons.indexOf(icon),
+                  ),
+                ))
+            .toList(),
         onTap: navigationTapped,
       ),
     );

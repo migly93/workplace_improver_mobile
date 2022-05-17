@@ -8,11 +8,13 @@ import 'package:workplace_improver_mobile/widgets/clickable_widget/clickable_wid
 class UserCircle extends StatelessWidget {
   final User user;
   final double radius;
+  final bool clickable;
 
   const UserCircle({
     Key? key,
     required this.user,
     required this.radius,
+    this.clickable = true,
   }) : super(key: key);
 
   @override
@@ -28,12 +30,12 @@ class UserCircle extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: secondaryColor,
-                  fontSize: 18,
+                  fontSize: radius - 2,
                 ),
               )
             : null,
       ),
-      onPressed: () {},
+      onPressed: clickable ? () {} : null,
     );
   }
 }

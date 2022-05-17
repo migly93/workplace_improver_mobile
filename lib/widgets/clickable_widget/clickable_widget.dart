@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 class ClickableWidget extends StatelessWidget {
   final Widget child;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   const ClickableWidget({
     Key? key,
     required this.child,
-    required this.onPressed,
+    this.onPressed,
   }) : super(key: key);
 
   @override
