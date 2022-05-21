@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:workplace_improver_mobile/models/initiative.dart';
-import 'package:workplace_improver_mobile/models/user.dart';
-import 'package:workplace_improver_mobile/service_locator.dart';
-import 'package:workplace_improver_mobile/services/initiative_service.dart';
-import 'package:workplace_improver_mobile/widgets/initiative_form/initiative_form_button.dart';
-import 'package:workplace_improver_mobile/widgets/initiative_form/initiative_form_text_field.dart';
-import 'package:workplace_improver_mobile/widgets/initiative_form/initiative_form_title.dart';
+import '../../models/initiative.dart';
+import '../../models/user.dart';
+import '../../service_locator.dart';
+import '../../services/initiative_service.dart';
+import 'initiative_form_button.dart';
+import 'initiative_form_text_field.dart';
+import 'initiative_form_title.dart';
 
 class InitiativeForm extends StatefulWidget {
   final User loggedUser;

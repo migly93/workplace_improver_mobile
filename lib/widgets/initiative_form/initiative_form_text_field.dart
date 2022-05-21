@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:workplace_improver_mobile/utils/constants.dart';
+import '../../utils/constants.dart';
 
 class InitiativeFormTextField extends StatefulWidget {
   final String placeholder;

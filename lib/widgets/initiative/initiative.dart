@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:workplace_improver_mobile/models/user.dart';
+import '../../models/user.dart';
 import 'description/initiative_description.dart';
 import 'footer/initiative_footer.dart';
 import '../../models/initiative.dart' as model;

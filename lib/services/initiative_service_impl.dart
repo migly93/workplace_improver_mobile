@@ -1,5 +1,5 @@
-import 'package:workplace_improver_mobile/models/initiative.dart';
-import 'package:workplace_improver_mobile/utils/constants.dart';
+import '../models/initiative.dart';
+import '../utils/constants.dart';
 
 import 'initiative_service.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:workplace_improver_mobile/utils/constants.dart';
+import '../../utils/constants.dart';
 
 class InitiativeFormButton extends StatelessWidget {
   final bool isDisabled;

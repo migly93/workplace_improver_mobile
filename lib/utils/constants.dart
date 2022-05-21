@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:workplace_improver_mobile/models/user.dart';
+import '../models/user.dart';
 
 final Color mainColor = Colors.red.shade300;
 const Color secondaryColor = Colors.white;

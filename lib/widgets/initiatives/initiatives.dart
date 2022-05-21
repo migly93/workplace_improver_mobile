@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:workplace_improver_mobile/models/initiative.dart' as model;
-import 'package:workplace_improver_mobile/models/user.dart';
-import 'package:workplace_improver_mobile/services/initiative_service.dart';
-import 'package:workplace_improver_mobile/widgets/initiative/initiative.dart';
-import 'package:workplace_improver_mobile/widgets/initiatives/no_initiatives_message.dart';
-
+import '../../models/initiative.dart' as model;
+import '../../models/user.dart';
+import '../../services/initiative_service.dart';
+import '../initiative/initiative.dart';
+import 'no_initiatives_message.dart';
 import '../../service_locator.dart';
 
 class Initiatives extends StatelessWidget {

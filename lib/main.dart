@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:workplace_improver_mobile/widgets/home_widget/home_widget.dart';
+import 'widgets/home_widget/home_widget.dart';
 import 'service_locator.dart';
 
 void main() {

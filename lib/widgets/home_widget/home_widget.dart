@@ -1,12 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:workplace_improver_mobile/models/user.dart';
-import 'package:workplace_improver_mobile/services/user_service.dart';
-import 'package:workplace_improver_mobile/widgets/bottom_nav_bar/bottom_nav_bar_icon.dart';
-import 'package:workplace_improver_mobile/widgets/home_page/home_page.dart';
-import 'package:workplace_improver_mobile/widgets/initiative_form/initiative_form.dart';
-import 'package:workplace_improver_mobile/widgets/user_profile/user_profile.dart';
-
+import '../../models/user.dart';
+import '../../services/user_service.dart';
+import '../bottom_nav_bar/bottom_nav_bar_icon.dart';
+import '../home_page/home_page.dart';
+import '../initiative_form/initiative_form.dart';
+import '../user_profile/user_profile.dart';
 import '../../service_locator.dart';
 
 class HomeWidget extends StatefulWidget {

@@ -1,4 +1,4 @@
-import 'package:workplace_improver_mobile/models/user.dart';
+import 'user.dart';
 
 class Initiative {
 //These are the values that this Demo model can store

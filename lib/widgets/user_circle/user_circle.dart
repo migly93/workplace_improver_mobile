@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:workplace_improver_mobile/models/user.dart';
-import 'package:workplace_improver_mobile/utils/constants.dart';
-import 'package:workplace_improver_mobile/utils/utilities.dart';
-import 'package:workplace_improver_mobile/widgets/clickable_widget/clickable_widget.dart';
+import '../../models/user.dart';
+import '../../utils/constants.dart';
+import '../../utils/utilities.dart';
+import '../clickable_widget/clickable_widget.dart';
 
 class UserCircle extends StatelessWidget {
   final User user;

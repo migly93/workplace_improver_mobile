@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:workplace_improver_mobile/models/user.dart';
-import 'package:workplace_improver_mobile/utils/constants.dart';
-import 'package:workplace_improver_mobile/widgets/summary/summary_line.dart';
+import '../../models/user.dart';
+import '../../utils/constants.dart';
+import 'summary_line.dart';
 
 class Summary extends StatelessWidget {
   final User loggedUser;

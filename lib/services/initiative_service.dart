@@ -1,4 +1,4 @@
-import 'package:workplace_improver_mobile/models/initiative.dart';
+import '../models/initiative.dart';
 
 abstract class InitiativeService {
   Future<void> createInitiative(Initiative initiative);
