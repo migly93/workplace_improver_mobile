@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:workplace_improver_mobile/models/initiative.dart';
 import 'package:workplace_improver_mobile/models/user.dart';
 import 'package:workplace_improver_mobile/service_locator.dart';
@@ -55,9 +55,9 @@ class _InitiativeFormState extends State<InitiativeForm> {
 
   _saveInitiative() {
     final initiative = Initiative(
-      title: _titleController.text,
-      description: _descriptionController.text,
-      tags: _tagsController.text.split(" "),
+      title: _titleController.text.trim(),
+      description: _descriptionController.text.trim(),
+      tags: _tagsController.text.trim().split(" "),
       status: 'Created',
       owner: widget.loggedUser,
     );
@@ -70,34 +70,41 @@ class _InitiativeFormState extends State<InitiativeForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          const InitiativeFormTitle(),
-          InitiativeFormTextField(
-            placeholder: 'Title',
-            controller: _titleController,
-            autofocus: true,
+    return GestureDetector(
+      child: Scaffold(
+        body: Container(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const InitiativeFormTitle(),
+                InitiativeFormTextField(
+                  placeholder: 'Title',
+                  controller: _titleController,
+                  autofocus: true,
+                ),
+                InitiativeFormTextField(
+                  placeholder: 'Description',
+                  controller: _descriptionController,
+                  maxLines: 8,
+                  textInputAction: TextInputAction.newline,
+                ),
+                InitiativeFormTextField(
+                  placeholder: 'Tags',
+                  controller: _tagsController,
+                  required: false,
+                ),
+                InitiativeFormButton(
+                  isDisabled: _isButtonDisabled,
+                  onPressed: _saveInitiative,
+                ),
+              ],
+            ),
           ),
-          InitiativeFormTextField(
-            placeholder: 'Description',
-            controller: _descriptionController,
-            maxLines: 8,
-            textInputAction: TextInputAction.newline,
-          ),
-          InitiativeFormTextField(
-            placeholder: 'Tags',
-            controller: _tagsController,
-            required: false,
-          ),
-          InitiativeFormButton(
-            isDisabled: _isButtonDisabled,
-            onPressed: _saveInitiative,
-          ),
-        ],
+          margin: const EdgeInsets.only(top: 36),
+          padding: const EdgeInsets.symmetric(horizontal: 32),
+        ),
       ),
-      margin: const EdgeInsets.only(top: 36),
-      padding: const EdgeInsets.symmetric(horizontal: 32),
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
     );
   }
 }
