@@ -18,12 +18,13 @@ class UserCircle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool hasImage = user.imageUrl.isNotEmpty;
     return ClickableWidget(
       child: CircleAvatar(
-        backgroundImage: NetworkImage(user.imageUrl),
-        backgroundColor: user.imageUrl == '' ? mainColor : secondaryColor,
+        backgroundImage: hasImage ? NetworkImage(user.imageUrl) : null,
+        backgroundColor: hasImage ? secondaryColor : mainColor,
         radius: radius,
-        child: user.imageUrl == ''
+        child: !hasImage
             ? Text(
                 Utilities.getFullNameInitials(user.firstName, user.lastName),
                 style: TextStyle(
