@@ -6,16 +6,23 @@ class InitiativeFormTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
     return Container(
-      child: Text(
-        "CHANGE YOUR COMPANY!",
-        style: TextStyle(
-          color: mainColor,
-          fontSize: 23,
-          fontWeight: FontWeight.w900,
+      child: FittedBox(
+        child: Text(
+          "CHANGE YOUR COMPANY!",
+          style: TextStyle(
+            color: mainColor,
+            fontSize:
+                23 * mediaQuery.textScaleFactor * mediaQuery.size.width / 390,
+            fontWeight: FontWeight.w900,
+          ),
         ),
       ),
-      margin: const EdgeInsets.symmetric(vertical: 48),
+      margin: EdgeInsets.symmetric(
+        vertical:
+            30 * mediaQuery.textScaleFactor * mediaQuery.size.height / 844,
+      ),
     );
   }
 }
