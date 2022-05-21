@@ -11,7 +11,7 @@ class NoInitiativesMessage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       _message,
-      style: TextStyle(
+      style: const TextStyle(
         color: mainGrey,
       ),
       textAlign: TextAlign.center,

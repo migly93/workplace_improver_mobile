@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:workplace_improver_mobile/models/user.dart';
 
 final Color mainColor = Colors.red.shade300;
-final Color secondaryColor = Colors.white;
-final Color mainGrey = Colors.grey;
+const Color secondaryColor = Colors.white;
+const Color mainGrey = Colors.grey;
 final Color validFieldGreen = Colors.greenAccent.shade100;
 final Color invalidFieldRed = Colors.redAccent.shade100;
 const Color lightGray = CupertinoColors.lightBackgroundGray;

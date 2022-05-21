@@ -43,8 +43,8 @@ class Initiative extends StatelessWidget {
       elevation: 8,
       shadowColor: secondaryColor,
       margin: const EdgeInsets.all(20),
-      shape: OutlineInputBorder(
-        borderRadius: const BorderRadius.all(
+      shape: const OutlineInputBorder(
+        borderRadius: BorderRadius.all(
           Radius.circular(16.0),
         ),
         borderSide: BorderSide(

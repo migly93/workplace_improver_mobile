@@ -30,7 +30,7 @@ class Summary extends StatelessWidget {
             firstPartText: _firstPartText,
             secondPartText: _secondPartTextInitiatives,
           ),
-          Divider(
+          const Divider(
             color: mainGrey,
             indent: 20,
             endIndent: 20,
