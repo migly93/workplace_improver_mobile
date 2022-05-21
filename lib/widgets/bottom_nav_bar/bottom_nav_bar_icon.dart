@@ -16,7 +16,7 @@ class BottomNavBarIcon extends StatelessWidget {
     return Icon(
       icon,
       color: pressed ? mainColor : mainGrey,
-      size: pressed ? 38 : 30,
+      size: pressed ? 36 : 30,
     );
   }
 }
