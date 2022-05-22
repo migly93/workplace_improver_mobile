@@ -11,7 +11,7 @@ class InitiativeFooterTag extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Padding(
       child: Text(
         tag,
         style: TextStyle(
