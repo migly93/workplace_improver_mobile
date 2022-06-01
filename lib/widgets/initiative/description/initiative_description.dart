@@ -11,19 +11,20 @@ class InitiativeDescription extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
     return Container(
       child: Text(
         description,
         style: TextStyle(
           color: mainGrey,
           fontFamily: mainFont,
-          fontSize: 12,
+          fontSize: 13 * mediaQuery.textScaleFactor,
           overflow: TextOverflow.fade,
         ),
         textAlign: TextAlign.justify,
       ),
-      width: 260,
-      height: 100,
+      width: mediaQuery.size.width * 0.66,
+      height: mediaQuery.size.height * 0.1,
       margin: const EdgeInsets.all(8),
     );
   }
