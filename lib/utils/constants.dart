@@ -9,6 +9,7 @@ final Color validFieldGreen = Colors.greenAccent.shade100;
 final Color invalidFieldRed = Colors.redAccent.shade100;
 const Color lightGray = CupertinoColors.lightBackgroundGray;
 const String mainFont = 'Roboto';
+const String homeRoute = '/';
 
 final BoxDecoration normalInputTextFieldBorder = BoxDecoration(
   border: Border.all(

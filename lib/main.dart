@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'utils/constants.dart';
 import 'widgets/home_widget/home_widget.dart';
 import 'service_locator.dart';
 
 void main() {
   setupServiceLocator();
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(const WorkplaceImprover());
 }
 
@@ -12,9 +19,11 @@ class WorkplaceImprover extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Workplace Improver',
-      home: HomeWidget(),
+      routes: {
+        homeRoute: (context) => const HomeWidget(),
+      },
     );
   }
 }

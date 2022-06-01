@@ -62,7 +62,6 @@ class _HomeWidgetState extends State<HomeWidget> {
               ),
               InitiativeForm(
                 loggedUser: _loggedUser,
-                backToHome: navigationTapped,
               ),
               UserProfile(
                 loggedUser: _loggedUser,

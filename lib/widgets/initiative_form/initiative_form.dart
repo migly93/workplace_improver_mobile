@@ -3,19 +3,18 @@ import '../../models/initiative.dart';
 import '../../models/user.dart';
 import '../../service_locator.dart';
 import '../../services/initiative_service.dart';
+import '../../utils/constants.dart';
 import 'initiative_form_button.dart';
 import 'initiative_form_text_field.dart';
 import 'initiative_form_title.dart';
 
 class InitiativeForm extends StatefulWidget {
   final User loggedUser;
-  final Function backToHome;
   final Initiative? initiative;
 
   const InitiativeForm({
     Key? key,
     required this.loggedUser,
-    required this.backToHome,
     this.initiative,
   }) : super(key: key);
 
@@ -53,7 +52,7 @@ class _InitiativeFormState extends State<InitiativeForm> {
         _titleController.text.isEmpty || _descriptionController.text.isEmpty);
   }
 
-  _saveInitiative() {
+  _saveInitiative(BuildContext context) {
     final initiative = Initiative(
       title: _titleController.text.trim(),
       description: _descriptionController.text.trim(),
@@ -61,11 +60,8 @@ class _InitiativeFormState extends State<InitiativeForm> {
       status: 'Created',
       owner: widget.loggedUser,
     );
-    _titleController.clear();
-    _descriptionController.clear();
-    _tagsController.clear();
     _initiativeService.createInitiative(initiative);
-    widget.backToHome(0);
+    Navigator.popAndPushNamed(context, homeRoute);
   }
 
   @override
@@ -95,7 +91,7 @@ class _InitiativeFormState extends State<InitiativeForm> {
                 ),
                 InitiativeFormButton(
                   isDisabled: _isButtonDisabled,
-                  onPressed: _saveInitiative,
+                  onPressed: () => _saveInitiative(context),
                 ),
               ],
             ),
