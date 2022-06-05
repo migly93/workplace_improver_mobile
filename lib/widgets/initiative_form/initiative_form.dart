@@ -60,8 +60,13 @@ class _InitiativeFormState extends State<InitiativeForm> {
       status: 'Created',
       owner: widget.loggedUser,
     );
-    _initiativeService.createInitiative(initiative);
-    Navigator.popAndPushNamed(context, homeRoute);
+    if (widget.initiative != null) {
+      initiative.id = widget.initiative!.id;
+      initiative.creationDate = widget.initiative!.creationDate;
+      initiative.status = widget.initiative!.status;
+    }
+    _initiativeService.saveOrUpdate(initiative);
+    Navigator.pushReplacementNamed(context, homeRoute);
   }
 
   @override

@@ -2,6 +2,7 @@ import 'user.dart';
 
 class Initiative {
 //These are the values that this Demo model can store
+  int id;
   String title;
   String description;
   String status;
@@ -16,9 +17,10 @@ class Initiative {
     required this.description,
     required this.status,
     required this.owner,
-    creationDate,
+    this.id = -1,
     this.likes = 0,
     this.comments = const [],
     this.tags = const [],
+    creationDate,
   });
 }

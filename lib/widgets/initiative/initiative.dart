@@ -23,8 +23,7 @@ class Initiative extends StatelessWidget {
         children: [
           InitiativeHeader(
             loggedUser: loggedUser,
-            title: initiative.title,
-            owner: initiative.owner,
+            initiative: initiative,
           ),
           InitiativeInfo(
             status: initiative.status,

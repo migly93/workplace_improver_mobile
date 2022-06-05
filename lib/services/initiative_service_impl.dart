@@ -1,11 +1,11 @@
 import '../models/initiative.dart';
 import '../utils/constants.dart';
-
 import 'initiative_service.dart';
 
 class InitiativeServiceImpl extends InitiativeService {
   var initiatives = [
     Initiative(
+      id: 0,
       title: "Title 1",
       description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet elementum leo. Nullam nec rhoncus magna, sed mollis tortor. Nunc a magna ligula. Mauris libero orci, volutpat non tellus id, euismod convallis nisi. Quisque vitae velit vel tortor aliquam commodo. Vivamus et turpis nibh. Quisque ac dignissim felis, eget tincidunt sem. Vestibulum consequat dapibus dapibus. Aenean consectetur viverra dui ut hendrerit. Suspendisse iaculis sit amet felis non volutpat.",
@@ -16,6 +16,7 @@ class InitiativeServiceImpl extends InitiativeService {
       owner: GIUSEPPE,
     ),
     Initiative(
+      id: 1,
       title: "Title 2",
       description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet elementum leo. Nullam nec rhoncus magna, sed mollis tortor. Nunc a magna ligula. Mauris libero orci, volutpat non tellus id, euismod convallis nisi. Quisque vitae velit vel tortor aliquam commodo. Vivamus et turpis nibh. Quisque ac dignissim felis, eget tincidunt sem. Vestibulum consequat dapibus dapibus. Aenean consectetur viverra dui ut hendrerit. Suspendisse iaculis sit amet felis non volutpat.",
@@ -26,6 +27,7 @@ class InitiativeServiceImpl extends InitiativeService {
       owner: CRISTINA,
     ),
     Initiative(
+      id: 2,
       title: "Title 3",
       description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet elementum leo. Nullam nec rhoncus magna, sed mollis tortor. Nunc a magna ligula. Mauris libero orci, volutpat non tellus id, euismod convallis nisi. Quisque vitae velit vel tortor aliquam commodo. Vivamus et turpis nibh. Quisque ac dignissim felis, eget tincidunt sem. Vestibulum consequat dapibus dapibus. Aenean consectetur viverra dui ut hendrerit. Suspendisse iaculis sit amet felis non volutpat.",
@@ -36,6 +38,7 @@ class InitiativeServiceImpl extends InitiativeService {
       owner: NOELIA,
     ),
     Initiative(
+      id: 3,
       title: "Title 4",
       description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet elementum leo. Nullam nec rhoncus magna, sed mollis tortor. Nunc a magna ligula. Mauris libero orci, volutpat non tellus id, euismod convallis nisi. Quisque vitae velit vel tortor aliquam commodo. Vivamus et turpis nibh. Quisque ac dignissim felis, eget tincidunt sem. Vestibulum consequat dapibus dapibus. Aenean consectetur viverra dui ut hendrerit. Suspendisse iaculis sit amet felis non volutpat.",
@@ -48,8 +51,15 @@ class InitiativeServiceImpl extends InitiativeService {
   ];
 
   @override
-  Future<void> createInitiative(Initiative initiative) async {
-    initiatives.add(initiative);
+  Future<void> saveOrUpdate(Initiative initiative) async {
+    if (initiative.id == -1) {
+      initiative.id = initiatives.length;
+      initiatives.add(initiative);
+    } else {
+      var toUpdate =
+          initiatives.firstWhere((element) => element.id == initiative.id);
+      initiatives[initiatives.indexOf(toUpdate)] = initiative;
+    }
   }
 
   @override

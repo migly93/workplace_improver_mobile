@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../models/initiative.dart';
 import '../../../models/user.dart';
 import 'initiative_header_edit.dart';
 import 'initiative_header_owner.dart';
@@ -6,14 +7,12 @@ import 'initiative_header_title.dart';
 
 class InitiativeHeader extends StatelessWidget {
   final User loggedUser;
-  final String title;
-  final User owner;
+  final Initiative initiative;
 
   const InitiativeHeader({
     Key? key,
     required this.loggedUser,
-    required this.title,
-    required this.owner,
+    required this.initiative,
   }) : super(key: key);
 
   @override
@@ -21,13 +20,14 @@ class InitiativeHeader extends StatelessWidget {
     return Row(
       children: [
         InitiativeHeaderOwner(
-          owner: owner,
+          owner: initiative.owner,
         ),
         InitiativeHeaderTitle(
-          title: title,
+          title: initiative.title,
         ),
         InitiativeHeaderEdit(
-          active: loggedUser.id == owner.id,
+          loggedUser: loggedUser,
+          initiative: initiative,
         ),
       ],
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
