@@ -8,16 +8,24 @@ import '../../service_locator.dart';
 
 class Initiatives extends StatelessWidget {
   final User loggedUser;
+  final bool getDataByProfile;
+  final User? profileToSearch;
+  final bool clickableOwner;
 
   final InitiativeService _initiativeService = getIt<InitiativeService>();
 
   Future<List<model.Initiative>> loadData() async {
-    return _initiativeService.getAll();
+    return getDataByProfile
+        ? _initiativeService.getByUser(profileToSearch!.id)
+        : _initiativeService.getAll();
   }
 
   Initiatives({
     Key? key,
     required this.loggedUser,
+    this.getDataByProfile = false,
+    this.clickableOwner = true,
+    this.profileToSearch,
   }) : super(key: key);
 
   @override
@@ -32,6 +40,7 @@ class Initiatives extends StatelessWidget {
                   itemBuilder: (_, index) => Initiative(
                     initiative: snapshot.data![index],
                     loggedUser: loggedUser,
+                    clickableOwner: clickableOwner,
                   ),
                 ),
               )

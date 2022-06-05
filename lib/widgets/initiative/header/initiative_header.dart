@@ -8,11 +8,13 @@ import 'initiative_header_title.dart';
 class InitiativeHeader extends StatelessWidget {
   final User loggedUser;
   final Initiative initiative;
+  final bool clickableOwner;
 
   const InitiativeHeader({
     Key? key,
     required this.loggedUser,
     required this.initiative,
+    required this.clickableOwner,
   }) : super(key: key);
 
   @override
@@ -20,7 +22,9 @@ class InitiativeHeader extends StatelessWidget {
     return Row(
       children: [
         InitiativeHeaderOwner(
-          owner: initiative.owner,
+          loggedUser: loggedUser,
+          initiative: initiative,
+          clickableOwner: clickableOwner,
         ),
         InitiativeHeaderTitle(
           title: initiative.title,

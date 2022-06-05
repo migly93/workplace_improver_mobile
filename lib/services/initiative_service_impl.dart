@@ -66,4 +66,10 @@ class InitiativeServiceImpl extends InitiativeService {
   Future<List<Initiative>> getAll() async {
     return initiatives;
   }
+
+  @override
+  Future<List<Initiative>> getByUser(int userId) {
+    return Future.value(
+        initiatives.where((element) => element.owner.id == userId).toList());
+  }
 }

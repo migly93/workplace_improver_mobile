@@ -1,13 +1,16 @@
 import 'package:flutter/widgets.dart';
+import '../initiatives/initiatives.dart';
 import '../../models/user.dart';
 import '../user_circle/user_circle.dart';
 
 class UserProfile extends StatelessWidget {
   final User loggedUser;
+  final User? profileToShow;
 
   const UserProfile({
     Key? key,
     required this.loggedUser,
+    this.profileToShow,
   }) : super(key: key);
 
   @override
@@ -16,13 +19,17 @@ class UserProfile extends StatelessWidget {
       child: Column(
         children: [
           UserCircle(
-            user: loggedUser,
+            loggedUser: loggedUser,
+            user: profileToShow ?? loggedUser,
             radius: 80,
             clickable: false,
           ),
-          const Text(
-            "Coming Soon!",
-          ),
+          Initiatives(
+            loggedUser: loggedUser,
+            getDataByProfile: true,
+            profileToSearch: profileToShow ?? loggedUser,
+            clickableOwner: false,
+          )
         ],
       ),
     );

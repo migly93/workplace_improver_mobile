@@ -10,10 +10,13 @@ import 'header/initiative_header.dart';
 class Initiative extends StatelessWidget {
   final User loggedUser;
   final model.Initiative initiative;
+  final bool clickableOwner;
+
   const Initiative({
     Key? key,
     required this.initiative,
     required this.loggedUser,
+    required this.clickableOwner,
   }) : super(key: key);
 
   @override
@@ -24,6 +27,7 @@ class Initiative extends StatelessWidget {
           InitiativeHeader(
             loggedUser: loggedUser,
             initiative: initiative,
+            clickableOwner: clickableOwner,
           ),
           InitiativeInfo(
             status: initiative.status,
