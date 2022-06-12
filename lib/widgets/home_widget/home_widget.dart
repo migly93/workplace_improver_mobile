@@ -58,13 +58,13 @@ class _HomeWidgetState extends State<HomeWidget> {
           child: PageView(
             children: [
               HomePage(
-                loggedUser: _loggedUser,
+                monthlyVotesLeft: _loggedUser.monthlyVotesLeft,
+                activeInitiatives: _loggedUser.activeInitiatives,
               ),
-              InitiativeForm(
-                loggedUser: _loggedUser,
-              ),
+              const InitiativeForm(),
               UserProfile(
-                loggedUser: _loggedUser,
+                isLoggedUser: true,
+                user: _loggedUser,
               ),
             ],
             physics: const NeverScrollableScrollPhysics(),

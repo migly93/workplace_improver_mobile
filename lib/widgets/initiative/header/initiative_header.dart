@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import '../../../models/initiative.dart';
-import '../../../models/user.dart';
 import 'initiative_header_edit.dart';
 import 'initiative_header_owner.dart';
 import 'initiative_header_title.dart';
 
 class InitiativeHeader extends StatelessWidget {
-  final User loggedUser;
+  final bool isOwnerLoggedIn;
   final Initiative initiative;
   final bool clickableOwner;
 
   const InitiativeHeader({
     Key? key,
-    required this.loggedUser,
+    required this.isOwnerLoggedIn,
     required this.initiative,
     required this.clickableOwner,
   }) : super(key: key);
@@ -22,7 +21,7 @@ class InitiativeHeader extends StatelessWidget {
     return Row(
       children: [
         InitiativeHeaderOwner(
-          loggedUser: loggedUser,
+          isOwnerLoggedIn: isOwnerLoggedIn,
           initiative: initiative,
           clickableOwner: clickableOwner,
         ),
@@ -30,7 +29,7 @@ class InitiativeHeader extends StatelessWidget {
           title: initiative.title,
         ),
         InitiativeHeaderEdit(
-          loggedUser: loggedUser,
+          isActive: isOwnerLoggedIn,
           initiative: initiative,
         ),
       ],

@@ -3,18 +3,17 @@ import '../../models/initiative.dart';
 import '../../models/user.dart';
 import '../../service_locator.dart';
 import '../../services/initiative_service.dart';
+import '../../services/user_service.dart';
 import '../../utils/constants.dart';
 import 'initiative_form_button.dart';
 import 'initiative_form_text_field.dart';
 import 'initiative_form_title.dart';
 
 class InitiativeForm extends StatefulWidget {
-  final User loggedUser;
   final Initiative? initiative;
 
   const InitiativeForm({
     Key? key,
-    required this.loggedUser,
     this.initiative,
   }) : super(key: key);
 
@@ -26,16 +25,19 @@ class InitiativeForm extends StatefulWidget {
 
 class _InitiativeFormState extends State<InitiativeForm> {
   final _initiativeService = getIt<InitiativeService>();
+  final UserService _userService = getIt<UserService>();
 
   final _titleController = TextEditingController();
   final _descriptionController = TextEditingController();
   final _tagsController = TextEditingController();
 
   late bool _isButtonDisabled;
+  late User _loggedUser;
 
   @override
   void initState() {
     super.initState();
+    _loggedUser = _userService.getLoggedUser();
     _titleController.text =
         widget.initiative != null ? widget.initiative!.title : '';
     _descriptionController.text =
@@ -58,7 +60,7 @@ class _InitiativeFormState extends State<InitiativeForm> {
       description: _descriptionController.text.trim(),
       tags: _tagsController.text.trim().split(" "),
       status: 'Created',
-      owner: widget.loggedUser,
+      owner: _loggedUser,
     );
     if (widget.initiative != null) {
       initiative.id = widget.initiative!.id;

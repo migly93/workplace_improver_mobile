@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import '../../../models/initiative.dart';
-import '../../../models/user.dart';
 import '../../user_circle/user_circle.dart';
 
 class InitiativeHeaderOwner extends StatelessWidget {
-  final User loggedUser;
+  final bool isOwnerLoggedIn;
   final Initiative initiative;
   final bool clickableOwner;
 
   const InitiativeHeaderOwner({
     Key? key,
-    required this.loggedUser,
+    required this.isOwnerLoggedIn,
     required this.initiative,
     required this.clickableOwner,
   }) : super(key: key);
@@ -19,9 +18,8 @@ class InitiativeHeaderOwner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: UserCircle(
-        loggedUser: loggedUser,
+        isLoggedUser: isOwnerLoggedIn,
         user: initiative.owner,
-        initiative: initiative,
         clickable: clickableOwner,
         radius: 20,
       ),

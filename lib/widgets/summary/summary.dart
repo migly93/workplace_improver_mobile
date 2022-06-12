@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../models/user.dart';
 import '../../utils/constants.dart';
 import 'summary_line.dart';
 
 class Summary extends StatelessWidget {
-  final User loggedUser;
+  final int monthlyVotesLeft;
+  final int activeInitiatives;
 
   final String _firstPartText = "You have ";
   final String _secondPartTextVotes = " votes left.";
@@ -12,7 +12,8 @@ class Summary extends StatelessWidget {
 
   const Summary({
     Key? key,
-    required this.loggedUser,
+    required this.monthlyVotesLeft,
+    required this.activeInitiatives,
   }) : super(key: key);
 
   @override
@@ -21,12 +22,12 @@ class Summary extends StatelessWidget {
       child: Column(
         children: [
           SummaryLine(
-            value: loggedUser.monthlyVotesLeft,
+            value: monthlyVotesLeft,
             firstPartText: _firstPartText,
             secondPartText: _secondPartTextVotes,
           ),
           SummaryLine(
-            value: loggedUser.activeInitiatives,
+            value: activeInitiatives,
             firstPartText: _firstPartText,
             secondPartText: _secondPartTextInitiatives,
           ),

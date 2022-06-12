@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import '../../../models/user.dart';
 import '../../initiative_form/initiative_form.dart';
 import '../../../models/initiative.dart';
 import '../../../utils/constants.dart';
 
 class InitiativeHeaderEdit extends StatelessWidget {
   final Initiative initiative;
-  final User loggedUser;
+  final bool isActive;
 
   const InitiativeHeaderEdit({
     Key? key,
     required this.initiative,
-    required this.loggedUser,
+    required this.isActive,
   }) : super(key: key);
 
   void editInitiative(BuildContext context) {
@@ -20,7 +19,6 @@ class InitiativeHeaderEdit extends StatelessWidget {
         context: context,
         builder: (_) {
           return InitiativeForm(
-            loggedUser: loggedUser,
             initiative: initiative,
           );
         });
@@ -28,15 +26,14 @@ class InitiativeHeaderEdit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final active = loggedUser.id == initiative.owner.id;
     return Container(
       child: IconButton(
         icon: Icon(
           Icons.edit,
-          color: active ? mainColor : secondaryColor,
+          color: isActive ? mainColor : secondaryColor,
           size: 26.0,
         ),
-        onPressed: active ? () => editInitiative(context) : null,
+        onPressed: isActive ? () => editInitiative(context) : null,
       ),
       margin: const EdgeInsets.all(10),
     );

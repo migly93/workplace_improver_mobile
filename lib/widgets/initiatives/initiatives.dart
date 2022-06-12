@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import '../../models/initiative.dart' as model;
 import '../../models/user.dart';
 import '../../services/initiative_service.dart';
+import '../../services/user_service.dart';
 import '../initiative/initiative.dart';
 import 'no_initiatives_message.dart';
 import '../../service_locator.dart';
 
 class Initiatives extends StatelessWidget {
-  final User loggedUser;
   final bool getDataByProfile;
   final User? profileToSearch;
   final bool clickableOwner;
 
   final InitiativeService _initiativeService = getIt<InitiativeService>();
+  final UserService _userService = getIt<UserService>();
 
   Future<List<model.Initiative>> loadData() async {
     return getDataByProfile
@@ -22,7 +23,6 @@ class Initiatives extends StatelessWidget {
 
   Initiatives({
     Key? key,
-    required this.loggedUser,
     this.getDataByProfile = false,
     this.clickableOwner = true,
     this.profileToSearch,
@@ -30,6 +30,7 @@ class Initiatives extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    User loggedUser = _userService.getLoggedUser();
     return FutureBuilder<List<model.Initiative>>(
       future: loadData(),
       builder: (context, snapshot) {

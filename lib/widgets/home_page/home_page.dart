@@ -1,14 +1,15 @@
 import 'package:flutter/cupertino.dart';
-import '../../models/user.dart';
 import '../initiatives/initiatives.dart';
 import '../summary/summary.dart';
 
 class HomePage extends StatelessWidget {
-  final User loggedUser;
+  final int monthlyVotesLeft;
+  final int activeInitiatives;
 
   const HomePage({
     Key? key,
-    required this.loggedUser,
+    required this.monthlyVotesLeft,
+    required this.activeInitiatives,
   }) : super(key: key);
 
   @override
@@ -17,11 +18,10 @@ class HomePage extends StatelessWidget {
       child: Column(
         children: [
           Summary(
-            loggedUser: loggedUser,
+            monthlyVotesLeft: monthlyVotesLeft,
+            activeInitiatives: activeInitiatives,
           ),
-          Initiatives(
-            loggedUser: loggedUser,
-          ),
+          Initiatives(),
         ],
       ),
     );

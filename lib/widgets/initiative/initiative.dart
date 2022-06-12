@@ -25,7 +25,7 @@ class Initiative extends StatelessWidget {
       child: Column(
         children: [
           InitiativeHeader(
-            loggedUser: loggedUser,
+            isOwnerLoggedIn: loggedUser.id == initiative.owner.id,
             initiative: initiative,
             clickableOwner: clickableOwner,
           ),

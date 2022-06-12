@@ -4,13 +4,13 @@ import '../../models/user.dart';
 import '../user_circle/user_circle.dart';
 
 class UserProfile extends StatelessWidget {
-  final User loggedUser;
-  final User? profileToShow;
+  final bool isLoggedUser;
+  final User user;
 
   const UserProfile({
     Key? key,
-    required this.loggedUser,
-    this.profileToShow,
+    required this.isLoggedUser,
+    required this.user,
   }) : super(key: key);
 
   @override
@@ -19,15 +19,14 @@ class UserProfile extends StatelessWidget {
       child: Column(
         children: [
           UserCircle(
-            loggedUser: loggedUser,
-            user: profileToShow ?? loggedUser,
+            isLoggedUser: isLoggedUser,
+            user: user,
             radius: 80,
             clickable: false,
           ),
           Initiatives(
-            loggedUser: loggedUser,
             getDataByProfile: true,
-            profileToSearch: profileToShow ?? loggedUser,
+            profileToSearch: user,
             clickableOwner: false,
           )
         ],
