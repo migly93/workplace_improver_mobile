@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import '../../../models/initiative_status_enum.dart';
 import 'initiative_info_creation_date.dart';
 import 'initiative_info_status.dart';
 
 class InitiativeInfo extends StatelessWidget {
-  final String status;
+  final InitiativeStatusEnum status;
   final DateTime creationDate;
 
   const InitiativeInfo({

@@ -1,3 +1,4 @@
+import '../models/initiative_status_enum.dart';
 import '../models/initiative.dart';
 import '../utils/constants.dart';
 import 'initiative_service.dart';
@@ -9,7 +10,7 @@ class InitiativeServiceImpl extends InitiativeService {
       title: "Title 1",
       description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet elementum leo. Nullam nec rhoncus magna, sed mollis tortor. Nunc a magna ligula. Mauris libero orci, volutpat non tellus id, euismod convallis nisi. Quisque vitae velit vel tortor aliquam commodo. Vivamus et turpis nibh. Quisque ac dignissim felis, eget tincidunt sem. Vestibulum consequat dapibus dapibus. Aenean consectetur viverra dui ut hendrerit. Suspendisse iaculis sit amet felis non volutpat.",
-      status: "Approved",
+      status: InitiativeStatusEnum.created,
       likes: 4,
       comments: ["comment 1", "Comment 2", "Comment 3"],
       tags: ["#tag1", "#tag2", "#tag3", "#tag4", "#tag5", "#tag6"],
@@ -20,7 +21,7 @@ class InitiativeServiceImpl extends InitiativeService {
       title: "Title 2",
       description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet elementum leo. Nullam nec rhoncus magna, sed mollis tortor. Nunc a magna ligula. Mauris libero orci, volutpat non tellus id, euismod convallis nisi. Quisque vitae velit vel tortor aliquam commodo. Vivamus et turpis nibh. Quisque ac dignissim felis, eget tincidunt sem. Vestibulum consequat dapibus dapibus. Aenean consectetur viverra dui ut hendrerit. Suspendisse iaculis sit amet felis non volutpat.",
-      status: "Approved",
+      status: InitiativeStatusEnum.approved,
       likes: 45,
       comments: ["comment 1", "Comment 2", "Comment 3"],
       tags: ["#tag1", "#tag2", "#tag3", "#tag4", "#tag5", "#tag6"],
@@ -31,7 +32,7 @@ class InitiativeServiceImpl extends InitiativeService {
       title: "Title 3",
       description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet elementum leo. Nullam nec rhoncus magna, sed mollis tortor. Nunc a magna ligula. Mauris libero orci, volutpat non tellus id, euismod convallis nisi. Quisque vitae velit vel tortor aliquam commodo. Vivamus et turpis nibh. Quisque ac dignissim felis, eget tincidunt sem. Vestibulum consequat dapibus dapibus. Aenean consectetur viverra dui ut hendrerit. Suspendisse iaculis sit amet felis non volutpat.",
-      status: "Finalized",
+      status: InitiativeStatusEnum.inProgress,
       likes: 8,
       comments: ["comment 1", "Comment 2", "Comment 3"],
       tags: ["#tag1", "#tag2"],
@@ -42,7 +43,7 @@ class InitiativeServiceImpl extends InitiativeService {
       title: "Title 4",
       description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet elementum leo. Nullam nec rhoncus magna, sed mollis tortor. Nunc a magna ligula. Mauris libero orci, volutpat non tellus id, euismod convallis nisi. Quisque vitae velit vel tortor aliquam commodo. Vivamus et turpis nibh. Quisque ac dignissim felis, eget tincidunt sem. Vestibulum consequat dapibus dapibus. Aenean consectetur viverra dui ut hendrerit. Suspendisse iaculis sit amet felis non volutpat.",
-      status: "Finalized",
+      status: InitiativeStatusEnum.completed,
       likes: 2,
       comments: ["comment 1", "Comment 2", "Comment 3"],
       tags: ["#tag1", "#tag2", "#tag3", "#tag4", "#tag5", "#tag6"],

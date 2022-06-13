@@ -1,11 +1,11 @@
+import 'initiative_status_enum.dart';
 import 'user.dart';
 
 class Initiative {
-//These are the values that this Demo model can store
   int id;
   String title;
   String description;
-  String status;
+  InitiativeStatusEnum status;
   DateTime creationDate = DateTime.now();
   int likes;
   List<String> comments;

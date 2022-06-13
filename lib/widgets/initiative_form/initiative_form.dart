@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../models/initiative_status_enum.dart';
 import '../../models/initiative.dart';
 import '../../models/user.dart';
 import '../../service_locator.dart';
@@ -59,7 +60,7 @@ class _InitiativeFormState extends State<InitiativeForm> {
       title: _titleController.text.trim(),
       description: _descriptionController.text.trim(),
       tags: _tagsController.text.trim().split(" "),
-      status: 'Created',
+      status: InitiativeStatusEnum.created,
       owner: _loggedUser,
     );
     if (widget.initiative != null) {
