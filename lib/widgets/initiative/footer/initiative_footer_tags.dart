@@ -11,7 +11,7 @@ class InitiativeFooterTags extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return FittedBox(
       child: Row(
         children: tags
             .take(3)
@@ -21,11 +21,6 @@ class InitiativeFooterTags extends StatelessWidget {
                 ))
             .toList(),
         mainAxisAlignment: MainAxisAlignment.start,
-      ),
-      width: 200,
-      margin: const EdgeInsets.symmetric(
-        vertical: 0,
-        horizontal: 8,
       ),
     );
   }
