@@ -63,3 +63,11 @@ final NOELIA = User(
   lastName: 'Carrasco',
   imageUrl: '',
 );
+
+// ignore: non_constant_identifier_names
+final LOY = User(
+  id: 3,
+  firstName: 'Loy',
+  lastName: 'Ramirez',
+  imageUrl: '',
+);
