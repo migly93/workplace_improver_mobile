@@ -61,7 +61,8 @@ final NOELIA = User(
   id: 2,
   firstName: 'Noelia',
   lastName: 'Carrasco',
-  imageUrl: '',
+  imageUrl:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRutnwPkkJ6omQkoqPgQtLDMbOrdgWUJGI-iw&usqp=CAU',
 );
 
 // ignore: non_constant_identifier_names
